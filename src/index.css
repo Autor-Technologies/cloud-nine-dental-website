@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary:     #4F7A21;   /* olive green */
+  --primary-mid: #3A5A18;   /* medium dark olive */
+  --primary-dark:#2D4A12;   /* deep olive */
+  --accent:      #7AB340;   /* lighter olive accent */
+  --amber:       #E07B35;   /* amber / orange CTA */
+  --body-text:   #687260;   /* olive-tinted muted text */
+  --heading:     #3A5A18;
+  --bg-light:    #F4F8EC;   /* very light olive tint */
+  --bg-grey:     #EBF0E2;
+  --border:      #D6E2C4;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  color: #4b5563;
+  background: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Urbanist', Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  color: #3A5A18;
+  line-height: 1.15;
+}
+
+section[id] { scroll-margin-top: 80px; }
+
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #f1f5f9; }
+::-webkit-scrollbar-thumb { background: #4F7A21; border-radius: 4px; }
+
+/* ── Buttons ─────────────────────────────────────────────── */
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: #4F7A21; color: #fff;
+  font-family: 'Urbanist', sans-serif; font-weight: 700; font-size: 15px;
+  padding: 12px 28px; border-radius: 8px; border: 2px solid #4F7A21;
+  cursor: pointer; text-decoration: none;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+}
+.btn-primary:hover { background: #3A5A18; border-color: #3A5A18; transform: translateY(-1px); }
+
+.btn-outline {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: transparent; color: #4F7A21;
+  font-family: 'Urbanist', sans-serif; font-weight: 700; font-size: 15px;
+  padding: 12px 28px; border-radius: 8px; border: 2px solid #4F7A21;
+  cursor: pointer; text-decoration: none;
+  transition: background 0.2s, color 0.2s, transform 0.15s;
+}
+.btn-outline:hover { background: #4F7A21; color: #fff; transform: translateY(-1px); }
+
+.btn-white {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: #fff; color: #4F7A21;
+  font-family: 'Urbanist', sans-serif; font-weight: 700; font-size: 15px;
+  padding: 12px 28px; border-radius: 8px; border: 2px solid #fff;
+  cursor: pointer; text-decoration: none;
+  transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.15s;
+}
+.btn-white:hover { background: #E07B35; border-color: #E07B35; color: #fff; transform: translateY(-1px); }
+
+.btn-amber {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: #E07B35; color: #fff;
+  font-family: 'Urbanist', sans-serif; font-weight: 700; font-size: 15px;
+  padding: 12px 28px; border-radius: 8px; border: 2px solid #E07B35;
+  cursor: pointer; text-decoration: none;
+  transition: background 0.2s, transform 0.15s;
+}
+.btn-amber:hover { background: #C96428; border-color: #C96428; transform: translateY(-1px); }
+
+/* ── Typography utilities ─────────────────────────────────── */
+.section-label {
+  display: inline-block;
+  font-family: 'Urbanist', sans-serif; font-weight: 700;
+  font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: #7AB340; margin-bottom: 12px;
+}
+
+.section-title {
+  font-family: 'Urbanist', sans-serif;
+  font-size: clamp(28px, 3.5vw, 42px); font-weight: 800;
+  color: #3A5A18; line-height: 1.15; margin-bottom: 16px;
+}
+
+.section-sub {
+  color: #687260; font-size: 16px; line-height: 1.7; max-width: 520px;
+}
+
+/* ── Card hover ───────────────────────────────────────────── */
+.card-hover {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(79, 122, 33, 0.12);
+}
+
+/* ── Page banner (inner pages) ───────────────────────────── */
+.page-banner {
+  background: linear-gradient(135deg, #2D4A12 0%, #3A5A18 50%, #4F7A21 100%);
+  padding: 80px 0 60px;
+  margin-top: 80px;
+}
