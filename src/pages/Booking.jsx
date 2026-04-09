@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { CheckCircle, Calendar, Phone, Clock, ArrowRight } from 'lucide-react'
+import { Helmet } from 'react-helmet-async'
 
 const SERVICES = [
   'General Dentistry – Check-up & Cleaning',
@@ -33,6 +34,14 @@ export default function Booking() {
 
   return (
     <>
+      <Helmet>
+        <title>Book Appointment | Cloud Nine Dental – Ernakulam, Kochi</title>
+        <meta name="description" content="Book your dental appointment at Cloud Nine Dental, Padivattom, Ernakulam online. Available Monday–Saturday 9AM–8PM, Sunday 10AM–2PM." />
+        <link rel="canonical" href="https://cloudninedental.in/booking" />
+        <meta property="og:title" content="Book a Dental Appointment – Cloud Nine Dental" />
+        <meta property="og:description" content="Schedule your dental visit at Cloud Nine Dental in Ernakulam, Kochi. Online booking available." />
+        <meta property="og:url" content="https://cloudninedental.in/booking" />
+      </Helmet>
       {/* Page Banner */}
       <div className="page-banner">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6 text-center">

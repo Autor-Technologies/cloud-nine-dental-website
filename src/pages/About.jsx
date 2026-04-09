@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { ArrowRight, CheckCircle, Award, Heart, Users, Zap } from 'lucide-react'
+import { Helmet } from 'react-helmet-async'
 
 const VALUES = [
   { icon: Heart, title: 'Patient-First Care', desc: 'Every decision we make is centred on your comfort, safety, and satisfaction.' },
@@ -18,6 +19,14 @@ const MILESTONES = [
 export default function About() {
   return (
     <>
+      <Helmet>
+        <title>About Us | Cloud Nine Dental – Padivattom, Ernakulam</title>
+        <meta name="description" content="Learn about Cloud Nine Dental in Padivattom, Ernakulam – our story, our modern clinic, and our commitment to gentle, expert dental care in Kochi." />
+        <link rel="canonical" href="https://cloudninedental.in/about" />
+        <meta property="og:title" content="About Cloud Nine Dental | Ernakulam, Kochi" />
+        <meta property="og:description" content="Modern dental clinic in Padivattom, Ernakulam. Meet our team and learn about our patient-first philosophy." />
+        <meta property="og:url" content="https://cloudninedental.in/about" />
+      </Helmet>
       {/* Page Banner */}
       <div className="page-banner">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6 text-center">

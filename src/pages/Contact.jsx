@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { MapPin, Phone, Mail, Clock, Send } from 'lucide-react'
+import { Helmet } from 'react-helmet-async'
 
 const HOURS = [
   { day: 'Monday – Friday', time: '9:00 AM – 8:00 PM' },
@@ -23,6 +24,14 @@ export default function Contact() {
 
   return (
     <>
+      <Helmet>
+        <title>Contact Us | Cloud Nine Dental – Padivattom, Ernakulam</title>
+        <meta name="description" content="Contact Cloud Nine Dental in Padivattom, Ernakulam, Kochi. Call +91 90379 09046, email info@cloudninedental.in, or book an appointment online." />
+        <link rel="canonical" href="https://cloudninedental.in/contact" />
+        <meta property="og:title" content="Contact Cloud Nine Dental | Ernakulam" />
+        <meta property="og:description" content="Get in touch with Cloud Nine Dental – call, email, or visit us opposite Lenskart, Padivattom, Ernakulam, Kochi." />
+        <meta property="og:url" content="https://cloudninedental.in/contact" />
+      </Helmet>
       {/* Page Banner */}
       <div className="page-banner">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6 text-center">
