@@ -64,8 +64,8 @@ function Hero() {
           </div>
 
           {/* Right: Clinic image */}
-          <div className="hidden lg:flex justify-end items-center">
-            <div className="relative w-[440px] h-[520px]">
+          <div className="flex justify-center lg:justify-end items-center mt-6 lg:mt-0">
+            <div className="relative w-full lg:w-[440px] h-[260px] sm:h-[340px] lg:h-[520px]">
               <div className="absolute inset-0 rounded-[2.5rem] overflow-hidden shadow-2xl">
                 <img
                   src="/images/reception.jpg"
@@ -75,19 +75,21 @@ function Hero() {
                 />
                 <div className="absolute inset-0 bg-navy/5" />
               </div>
-              {/* Floating stat cards */}
-              <div className="absolute -left-10 top-16 bg-white rounded-2xl shadow-xl border border-gray-100 p-4 w-[150px]">
-                <div className="text-3xl font-urbanist font-extrabold text-navy mb-0.5">500+</div>
-                <div className="text-[12px] text-body font-medium">Happy Patients</div>
-                <div className="mt-2 flex gap-0.5">
-                  {[...Array(5)].map((_, i) => <Star key={i} size={10} fill="#C8A020" color="#C8A020" />)}
+              {/* Floating stat card — bottom-left (inside on mobile, outside on desktop) */}
+              <div className="absolute left-3 bottom-3 lg:-left-10 lg:top-16 lg:bottom-auto bg-white rounded-xl lg:rounded-2xl shadow-xl border border-gray-100 p-2.5 lg:p-4 w-[110px] lg:w-[150px]">
+                <div className="text-xl lg:text-3xl font-urbanist font-extrabold text-navy mb-0">500+</div>
+                <div className="text-[11px] lg:text-[12px] text-body font-medium">Happy Patients</div>
+                <div className="mt-1 flex gap-0.5">
+                  {[...Array(5)].map((_, i) => <Star key={i} size={9} fill="#C8A020" color="#C8A020" />)}
                 </div>
               </div>
-              <div className="absolute -right-8 bottom-24 bg-navy rounded-2xl shadow-xl p-4 w-[155px]">
-                <div className="text-3xl font-urbanist font-extrabold text-white mb-0.5">10+</div>
-                <div className="text-[12px] text-green-200/70 font-medium">Years of Expert Care</div>
+              {/* Floating stat card — bottom-right (inside on mobile, outside on desktop) */}
+              <div className="absolute right-3 bottom-3 lg:-right-8 lg:bottom-24 bg-navy rounded-xl lg:rounded-2xl shadow-xl p-2.5 lg:p-4 w-[110px] lg:w-[155px]">
+                <div className="text-xl lg:text-3xl font-urbanist font-extrabold text-white mb-0">10+</div>
+                <div className="text-[11px] lg:text-[12px] text-green-200/70 font-medium">Years of Care</div>
               </div>
-              <div className="absolute -left-6 bottom-12 bg-brand-yellow rounded-xl shadow-lg p-3 flex items-center gap-2">
+              {/* Free check-up badge — desktop only */}
+              <div className="hidden lg:flex absolute -left-6 bottom-12 bg-brand-yellow rounded-xl shadow-lg p-3 items-center gap-2">
                 <CheckCircle size={16} className="text-white" />
                 <span className="font-urbanist font-bold text-white text-[13px]">Free First Check-up</span>
               </div>
