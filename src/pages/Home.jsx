@@ -73,19 +73,21 @@ function Hero() {
                 />
                 <div className="absolute inset-0 bg-navy/10" />
               </div>
-              {/* Floating stat cards */}
-              <div className="absolute -left-10 top-16 bg-white rounded-2xl shadow-xl border border-gray-100 p-4 w-[150px]">
-                <div className="text-3xl font-urbanist font-extrabold text-navy mb-0.5">500+</div>
-                <div className="text-[12px] text-body font-medium">Happy Patients</div>
-                <div className="mt-2 flex gap-0.5">
-                  {[...Array(5)].map((_, i) => <Star key={i} size={10} fill="#E07B35" color="#E07B35" />)}
+              {/* Floating stat card — bottom-left */}
+              <div className="absolute left-3 bottom-3 lg:-left-10 lg:top-16 lg:bottom-auto bg-white rounded-xl lg:rounded-2xl shadow-xl border border-gray-100 p-2.5 lg:p-4 w-[110px] lg:w-[150px]">
+                <div className="text-xl lg:text-3xl font-urbanist font-extrabold text-navy mb-0">500+</div>
+                <div className="text-[11px] lg:text-[12px] text-body font-medium">Happy Patients</div>
+                <div className="mt-1 flex gap-0.5">
+                  {[...Array(5)].map((_, i) => <Star key={i} size={9} fill="#E07B35" color="#E07B35" />)}
                 </div>
               </div>
-              <div className="absolute -right-8 bottom-24 bg-navy rounded-2xl shadow-xl p-4 w-[155px]">
-                <div className="text-3xl font-urbanist font-extrabold text-white mb-0.5">10+</div>
-                <div className="text-[12px] text-green-200/70 font-medium">Years of Expert Care</div>
+              {/* Floating stat card — bottom-right */}
+              <div className="absolute right-3 bottom-3 lg:-right-8 lg:bottom-24 bg-navy rounded-xl lg:rounded-2xl shadow-xl p-2.5 lg:p-4 w-[110px] lg:w-[155px]">
+                <div className="text-xl lg:text-3xl font-urbanist font-extrabold text-white mb-0">10+</div>
+                <div className="text-[11px] lg:text-[12px] text-green-200/70 font-medium">Years of Care</div>
               </div>
-              <div className="absolute -left-6 bottom-12 bg-brand-yellow rounded-xl shadow-lg p-3 flex items-center gap-2">
+              {/* Free check-up badge — desktop only (3 cards too cramped on mobile) */}
+              <div className="hidden lg:flex absolute -left-6 bottom-12 bg-brand-yellow rounded-xl shadow-lg p-3 items-center gap-2">
                 <CheckCircle size={16} className="text-white" />
                 <span className="font-urbanist font-bold text-white text-[13px]">Free First Check-up</span>
               </div>
