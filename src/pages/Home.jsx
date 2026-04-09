@@ -63,8 +63,8 @@ function Hero() {
           </div>
 
           {/* Right: Clinic image */}
-          <div className="hidden lg:flex justify-end items-center">
-            <div className="relative w-[440px] h-[520px]">
+          <div className="flex justify-center lg:justify-end items-center mt-6 lg:mt-0">
+            <div className="relative w-full lg:w-[440px] h-[260px] sm:h-[340px] lg:h-[520px]">
               <div className="absolute inset-0 rounded-[2.5rem] overflow-hidden shadow-2xl">
                 <img
                   src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=880&h=1040&fit=crop&auto=format&q=80"
