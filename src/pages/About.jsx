@@ -12,7 +12,7 @@ const MILESTONES = [
   { year: '2022', event: 'Cloud Nine Dental opened in Padivattom, Ernakulam' },
   { year: '2023', event: 'Expanded to offer advanced implantology and orthodontics' },
   { year: '2024', event: 'Reached 300+ satisfied patients; introduced pediatric dental care' },
-  { year: '2025', event: '500+ happy patients; rated 4.9★ across Google & JustDial' },
+  { year: '2025', event: '500+ happy patients; rated 5.0★ across Google & JustDial' },
 ]
 
 export default function About() {
@@ -43,9 +43,10 @@ export default function About() {
             <div className="relative">
               <div className="rounded-[24px] h-[420px] overflow-hidden shadow-xl">
                 <img
-                  src="https://images.unsplash.com/photo-1571772996211-2f02c9727629?w=700&h=500&fit=crop&auto=format&q=80"
-                  alt="Cloud Nine Dental – modern dental clinic in Ernakulam"
-                  className="w-full h-full object-cover"
+                  src="/images/reception.jpg"
+                  alt="Cloud Nine Dental reception – Padivattom, Ernakulam"
+                  className="w-full h-full object-cover object-center"
+                  onError={e => { e.currentTarget.src = 'https://images.unsplash.com/photo-1571772996211-2f02c9727629?w=700&h=500&fit=crop&auto=format&q=80' }}
                 />
                 <div className="absolute inset-0 bg-navy/10 rounded-[24px]" />
               </div>
@@ -93,7 +94,7 @@ export default function About() {
             {/* Left: image */}
             <div className="rounded-[24px] overflow-hidden h-[380px] shadow-xl">
               <img
-                src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=700&h=460&fit=crop&auto=format&q=80"
+                src="/images/treatment-room-2.jpg"
                 alt="Caring dental team at Cloud Nine Dental"
                 className="w-full h-full object-cover"
               />

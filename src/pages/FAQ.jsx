@@ -80,7 +80,7 @@ export default function FAQ() {
             {/* Image */}
             <div className="h-[300px] lg:h-[380px] overflow-hidden">
               <img
-                src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=800&h=500&fit=crop&auto=format&q=80"
+                src="/images/treatment-room-1.jpg"
                 alt="Friendly dental team at Cloud Nine Dental"
                 className="w-full h-full object-cover"
               />
@@ -96,7 +96,7 @@ export default function FAQ() {
               </p>
               <div className="flex flex-wrap gap-3">
                 <Link to="/booking" className="btn-primary">Book Appointment <ArrowRight size={14} /></Link>
-                <a href="tel:+91XXXXXXXXXX" className="btn-outline"><Phone size={14} /> Call Us</a>
+                <a href="tel:+919037909046" className="btn-outline"><Phone size={14} /> Call Us</a>
               </div>
             </div>
           </div>
@@ -131,7 +131,7 @@ export default function FAQ() {
           {/* Still have questions — image CTA */}
           <div className="relative rounded-[20px] overflow-hidden mt-8">
             <img
-              src="https://images.unsplash.com/photo-1571772996211-2f02c9727629?w=900&h=300&fit=crop&auto=format&q=70"
+              src="/images/clinic-exterior.jpg"
               alt=""
               aria-hidden="true"
               className="absolute inset-0 w-full h-full object-cover"

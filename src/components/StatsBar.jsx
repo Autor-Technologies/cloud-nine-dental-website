@@ -2,7 +2,7 @@ const STATS = [
   { value: '500+', label: 'Patients Treated' },
   { value: '10+', label: 'Years of Excellence' },
   { value: '9+', label: 'Expert Services' },
-  { value: '4.9★', label: 'Patient Rating' },
+  { value: '5.0★', label: 'Patient Rating' },
 ]
 
 export default function StatsBar() {

@@ -23,7 +23,7 @@ function ToothIllustration() {
 const STATS = [
   { value: '500+', label: 'Patients Treated' },
   { value: '10+', label: 'Years of Care' },
-  { value: '4.9★', label: 'Patient Rating' },
+  { value: '5.0★', label: 'Patient Rating' },
 ]
 
 export default function Hero() {
@@ -131,7 +131,7 @@ export default function Hero() {
                     <div className="text-slate-400 text-xs mt-0.5 font-medium">Happy Patients</div>
                   </div>
                   <div className="bg-white rounded-2xl p-4 shadow-sm border border-slate-50">
-                    <div className="text-teal-600 text-2xl font-extrabold">4.9★</div>
+                    <div className="text-teal-600 text-2xl font-extrabold">5.0★</div>
                     <div className="text-slate-400 text-xs mt-0.5 font-medium">Avg Rating</div>
                   </div>
                 </div>
