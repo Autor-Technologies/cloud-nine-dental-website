@@ -23,8 +23,9 @@ export default function About() {
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6 text-center">
           <span className="section-label text-brand-yellow">Who We Are</span>
           <h1 className="font-urbanist font-extrabold text-white text-[clamp(32px,4vw,52px)] mt-2 mb-4">About Cloud Nine Dental</h1>
+          <p className="text-brand-yellow text-[11px] font-bold tracking-[0.2em] uppercase mb-2 italic">Discovering Heavenly Smiles</p>
           <p className="text-green-200/70 text-[16px] max-w-xl mx-auto leading-relaxed">
-            A modern dental clinic in the heart of Ernakulam — committed to excellence, compassion, and healthy smiles.
+            A modern dental clinic in the heart of Ernakulam — committed to excellence, compassion, and heavenly smiles.
           </p>
           <nav className="text-[13px] text-green-200/50 mt-6" aria-label="Breadcrumb">
             <Link to="/" className="hover:text-white transition-colors">Home</Link>

@@ -1,18 +1,28 @@
 import { Link } from 'react-router-dom'
 import { MapPin, Phone, Mail, Clock, Instagram, Facebook, Youtube } from 'lucide-react'
 
-/* ── Cloud + Halo logo — matches clinic branding ────────── */
-function CloudHaloLogo({ size = 38 }) {
+/* ── Cloud Nine Dental Logo SVG (faithful replica of clinic logo) ── */
+function CloudHaloLogo({ size = 44 }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <rect width="40" height="40" rx="10" fill="#4F7A21" />
-      {/* Halo ring above cloud */}
-      <ellipse cx="20" cy="10" rx="6.5" ry="2.2" stroke="white" strokeWidth="1.8" fill="none" strokeOpacity="0.95" />
-      {/* Cloud shape */}
-      <path
-        d="M7 28 Q7 23 12 23 Q12 17.5 17.5 17.5 Q18.5 13.5 23 14.5 Q27.5 13.5 28.5 18 Q33 18 33 23.5 Q33 29 27.5 29 L12 29 Q7 29 7 28 Z"
-        fill="white"
-      />
+    <svg width={size} height={size} viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Cloud Nine Dental">
+      <rect width="100" height="100" rx="18" fill="#4A5520" />
+      <ellipse cx="50" cy="18" rx="16" ry="5.5" stroke="url(#fHaloGrad)" strokeWidth="3.8" fill="none" />
+      <ellipse cx="50" cy="68" rx="34" ry="18" fill="white" fillOpacity="0.18" />
+      <path d="M18 78 Q17 66 25 64 Q24 53 33 50 Q34 40 44 40 Q48 34 54 36 Q62 33 66 41 Q75 41 76 52 Q84 54 83 65 Q83 79 74 80 L26 80 Q18 80 18 78 Z" fill="white" />
+      <path d="M38 72 Q37 63 39 58 Q40 51 44 48 Q46 44 50 44 Q54 44 56 48 Q60 51 61 58 Q63 63 62 72 Q61 77 58 77 Q56 77 55 73 Q53 69 50 69 Q47 69 45 73 Q44 77 42 77 Q39 77 38 72 Z"
+        fill="none" stroke="url(#fToothGrad)" strokeWidth="2.6" strokeLinejoin="round" />
+      <path d="M44 51 Q46 47 49 49" stroke="url(#fToothGrad)" strokeWidth="2" strokeLinecap="round" fill="none" />
+      <defs>
+        <linearGradient id="fHaloGrad" x1="34" y1="12" x2="66" y2="24" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stopColor="#F0C840" />
+          <stop offset="50%" stopColor="#C8A020" />
+          <stop offset="100%" stopColor="#E8B830" />
+        </linearGradient>
+        <linearGradient id="fToothGrad" x1="38" y1="44" x2="62" y2="77" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stopColor="#E8C040" />
+          <stop offset="100%" stopColor="#C08018" />
+        </linearGradient>
+      </defs>
     </svg>
   )
 }
@@ -56,8 +66,11 @@ export default function Footer() {
               </div>
             </Link>
 
+            <p className="text-brand-yellow text-[11px] font-bold tracking-[0.18em] uppercase mb-2 italic">
+              Discovering Heavenly Smiles
+            </p>
             <p className="text-green-200/70 text-sm leading-relaxed mb-6 max-w-[220px]">
-              Expert, compassionate dental care in Padivattom, Ernakulam — transforming smiles across Kochi since 2022.
+              Expert, compassionate dental care in Padivattom, Ernakulam — serving Kochi since 2022.
             </p>
 
             {/* Social icons */}

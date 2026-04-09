@@ -3,13 +3,13 @@
 @tailwind utilities;
 
 :root {
-  --primary:     #4F7A21;   /* olive green */
-  --primary-mid: #3A5A18;   /* medium dark olive */
-  --primary-dark:#2D4A12;   /* deep olive */
-  --accent:      #7AB340;   /* lighter olive accent */
-  --amber:       #E07B35;   /* amber / orange CTA */
-  --body-text:   #687260;   /* olive-tinted muted text */
-  --heading:     #3A5A18;
+  --primary:     #4A5520;   /* dark olive green (logo bg tone) */
+  --primary-mid: #3A4418;   /* medium dark olive */
+  --primary-dark:#2E3614;   /* deep olive */
+  --accent:      #6B7F2A;   /* lighter olive accent */
+  --amber:       #C8A020;   /* warm gold (logo halo & tooth) */
+  --body-text:   #5A6040;   /* olive-tinted muted text */
+  --heading:     #3A4418;
   --bg-light:    #F4F8EC;   /* very light olive tint */
   --bg-grey:     #EBF0E2;
   --border:      #D6E2C4;
@@ -29,7 +29,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Urbanist', Helvetica, Arial, sans-serif;
   font-weight: 700;
-  color: #3A5A18;
+  color: #3A4418;
   line-height: 1.15;
 }
 
@@ -37,48 +37,48 @@ section[id] { scroll-margin-top: 80px; }
 
 ::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background: #f1f5f9; }
-::-webkit-scrollbar-thumb { background: #4F7A21; border-radius: 4px; }
+::-webkit-scrollbar-thumb { background: #4A5520; border-radius: 4px; }
 
 /* ── Buttons ─────────────────────────────────────────────── */
 .btn-primary {
   display: inline-flex; align-items: center; gap: 8px;
-  background: #4F7A21; color: #fff;
+  background: #4A5520; color: #fff;
   font-family: 'Urbanist', sans-serif; font-weight: 700; font-size: 15px;
-  padding: 12px 28px; border-radius: 8px; border: 2px solid #4F7A21;
+  padding: 12px 28px; border-radius: 8px; border: 2px solid #4A5520;
   cursor: pointer; text-decoration: none;
   transition: background 0.2s, border-color 0.2s, transform 0.15s;
 }
-.btn-primary:hover { background: #3A5A18; border-color: #3A5A18; transform: translateY(-1px); }
+.btn-primary:hover { background: #3A4418; border-color: #3A4418; transform: translateY(-1px); }
 
 .btn-outline {
   display: inline-flex; align-items: center; gap: 8px;
-  background: transparent; color: #4F7A21;
+  background: transparent; color: #4A5520;
   font-family: 'Urbanist', sans-serif; font-weight: 700; font-size: 15px;
-  padding: 12px 28px; border-radius: 8px; border: 2px solid #4F7A21;
+  padding: 12px 28px; border-radius: 8px; border: 2px solid #4A5520;
   cursor: pointer; text-decoration: none;
   transition: background 0.2s, color 0.2s, transform 0.15s;
 }
-.btn-outline:hover { background: #4F7A21; color: #fff; transform: translateY(-1px); }
+.btn-outline:hover { background: #4A5520; color: #fff; transform: translateY(-1px); }
 
 .btn-white {
   display: inline-flex; align-items: center; gap: 8px;
-  background: #fff; color: #4F7A21;
+  background: #fff; color: #4A5520;
   font-family: 'Urbanist', sans-serif; font-weight: 700; font-size: 15px;
   padding: 12px 28px; border-radius: 8px; border: 2px solid #fff;
   cursor: pointer; text-decoration: none;
   transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.15s;
 }
-.btn-white:hover { background: #E07B35; border-color: #E07B35; color: #fff; transform: translateY(-1px); }
+.btn-white:hover { background: #C8A020; border-color: #C8A020; color: #fff; transform: translateY(-1px); }
 
 .btn-amber {
   display: inline-flex; align-items: center; gap: 8px;
-  background: #E07B35; color: #fff;
+  background: #C8A020; color: #fff;
   font-family: 'Urbanist', sans-serif; font-weight: 700; font-size: 15px;
-  padding: 12px 28px; border-radius: 8px; border: 2px solid #E07B35;
+  padding: 12px 28px; border-radius: 8px; border: 2px solid #C8A020;
   cursor: pointer; text-decoration: none;
   transition: background 0.2s, transform 0.15s;
 }
-.btn-amber:hover { background: #C96428; border-color: #C96428; transform: translateY(-1px); }
+.btn-amber:hover { background: #A07818; border-color: #A07818; transform: translateY(-1px); }
 
 /* ── Typography utilities ─────────────────────────────────── */
 .section-label {
@@ -91,7 +91,7 @@ section[id] { scroll-margin-top: 80px; }
 .section-title {
   font-family: 'Urbanist', sans-serif;
   font-size: clamp(28px, 3.5vw, 42px); font-weight: 800;
-  color: #3A5A18; line-height: 1.15; margin-bottom: 16px;
+  color: #3A4418; line-height: 1.15; margin-bottom: 16px;
 }
 
 .section-sub {
@@ -109,7 +109,7 @@ section[id] { scroll-margin-top: 80px; }
 
 /* ── Page banner (inner pages) ───────────────────────────── */
 .page-banner {
-  background: linear-gradient(135deg, #2D4A12 0%, #3A5A18 50%, #4F7A21 100%);
+  background: linear-gradient(135deg, #2E3614 0%, #3A4418 50%, #4A5520 100%);
   padding: 80px 0 60px;
   margin-top: 80px;
 }

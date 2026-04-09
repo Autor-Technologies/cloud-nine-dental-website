@@ -67,7 +67,10 @@ export default function Hero() {
               <span className="gradient-text">Our Passion</span>
             </h1>
 
-            {/* Subtext */}
+            {/* Tagline + Subtext */}
+            <p className="text-brand-blue font-urbanist font-bold text-[12px] tracking-[0.22em] uppercase mb-3 italic">
+              — Discovering Heavenly Smiles —
+            </p>
             <p className="text-slate-500 text-[17px] leading-relaxed mb-8 max-w-[480px]">
               Expert, compassionate dental care in the heart of Ernakulam. From routine check-ups
               to advanced cosmetic procedures — we make every visit comfortable and effective.

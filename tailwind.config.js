@@ -11,18 +11,19 @@ export default {
         inter:    ['Inter', 'Helvetica', 'Arial', 'sans-serif'],
       },
       colors: {
-        /* ── Olive green brand palette ─────────────────── */
+        /* ── Cloud Nine Dental brand palette ───────────── */
+        /* Derived from logo: deep olive bg + warm gold halo/tooth */
         navy: {
-          DEFAULT: '#4F7A21',   // primary olive green
-          dark:    '#2D4A12',   // deep olive (dark sections / footer)
-          mid:     '#3A5A18',   // headings / medium dark
+          DEFAULT: '#4A5520',   // dark olive green (logo background tone)
+          dark:    '#2E3614',   // deep olive (footer / dark sections)
+          mid:     '#3A4418',   // headings / medium dark olive
         },
         brand: {
-          blue:   '#7AB340',    // lighter olive — accent labels / links
-          yellow: '#E07B35',    // amber (chairs) — CTA highlights
-          gold:   '#C96428',    // dark amber
+          blue:   '#6B7F2A',    // medium olive — accent labels / links
+          yellow: '#C8A020',    // warm gold (logo halo & tooth colour)
+          gold:   '#A07818',    // deep gold
         },
-        body: '#687260',        // olive-tinted muted body text
+        body: '#5A6040',        // olive-tinted muted body text
       },
       animation: {
         'fade-up': 'fadeUp 0.6s ease-out forwards',

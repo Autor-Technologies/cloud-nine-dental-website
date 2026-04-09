@@ -29,10 +29,12 @@ function Hero() {
               Expert Dental Care<br />
               <span className="text-brand-blue">for Your Family</span>
             </h1>
+            <p className="text-brand-blue font-urbanist font-bold text-[12px] tracking-[0.22em] uppercase mb-3 italic">
+              — Discovering Heavenly Smiles —
+            </p>
             <p className="section-sub text-[17px] leading-[1.75] mb-8">
-              Elevating smiles with expert care and a gentle touch.
               Your trusted dental clinic in Padivattom, Ernakulam —
-              offering comprehensive dental solutions for every member of your family.
+              offering expert, compassionate care for every member of your family.
             </p>
             <div className="flex flex-wrap gap-4 mb-10">
               <Link to="/booking" className="btn-primary">Book Appointment <ArrowRight size={16} /></Link>
