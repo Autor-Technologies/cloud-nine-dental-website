@@ -29,6 +29,7 @@ const QUICK_LINKS = [
   { label: 'About Us', to: '/about' },
   { label: 'Our Services', to: '/services' },
   { label: 'Meet the Dentists', to: '/dentists' },
+  { label: 'Blog', to: '/blog' },
   { label: 'FAQ', to: '/faq' },
   { label: 'Book Appointment', to: '/booking' },
   { label: 'Contact Us', to: '/contact' },

@@ -192,6 +192,7 @@ export default function Navbar() {
             </div>
             <NavLink to="/about"    label="About"    active={isActive('/about')}    dark={isDark} />
             <NavLink to="/dentists" label="Dentists" active={isActive('/dentists')} dark={isDark} />
+            <NavLink to="/blog"     label="Blog"     active={location.pathname.startsWith('/blog')} dark={isDark} />
             <NavLink to="/faq"      label="FAQ"      active={isActive('/faq')}      dark={isDark} />
             <NavLink to="/contact"  label="Contact"  active={isActive('/contact')}  dark={isDark} />
           </nav>
@@ -236,6 +237,7 @@ export default function Navbar() {
             </div>
             <MobileNavLink to="/about"    label="About"    onClick={() => setMobileOpen(false)} />
             <MobileNavLink to="/dentists" label="Dentists" onClick={() => setMobileOpen(false)} />
+            <MobileNavLink to="/blog"     label="Blog"     onClick={() => setMobileOpen(false)} />
             <MobileNavLink to="/faq"      label="FAQ"      onClick={() => setMobileOpen(false)} />
             <MobileNavLink to="/contact"  label="Contact"  onClick={() => setMobileOpen(false)} />
           </nav>
