@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import {
   ArrowRight, Phone, Star, CheckCircle,
@@ -467,6 +468,11 @@ function BookingCTA() {
 export default function Home() {
   return (
     <>
+      <Helmet>
+        <title>Cloud Nine Dental | Best Dental Clinic in Padivattom, Ernakulam, Kochi</title>
+        <meta name="description" content="Cloud Nine Dental – expert dental care in Padivattom, Ernakulam. Dental implants, orthodontics, cosmetic dentistry, root canal & more. Opp. Lenskart, Kochi. Call +91 90379 09046." />
+        <link rel="canonical" href="https://cloudninedental.in/" />
+      </Helmet>
       <Hero />
       <StatsBar />
       <ServicesOverview />

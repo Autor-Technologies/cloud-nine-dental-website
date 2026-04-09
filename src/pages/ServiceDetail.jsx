@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async'
 import { useParams, Link } from 'react-router-dom'
 import { ArrowRight, CheckCircle, Clock, Star, Phone, Shield } from 'lucide-react'
 
@@ -162,8 +163,18 @@ export default function ServiceDetail() {
 
   const { title, tagline, desc, desc2, benefits, duration, color } = service
 
+  const metaDesc = `${desc.slice(0, 140)}... Book at Cloud Nine Dental, Padivattom, Ernakulam.`
+
   return (
     <>
+      <Helmet>
+        <title>{title} in Ernakulam | Cloud Nine Dental, Kochi</title>
+        <meta name="description" content={metaDesc} />
+        <link rel="canonical" href={`https://cloudninedental.in/services/${slug}`} />
+        <meta property="og:title" content={`${title} – Cloud Nine Dental Ernakulam`} />
+        <meta property="og:description" content={metaDesc} />
+        <meta property="og:url" content={`https://cloudninedental.in/services/${slug}`} />
+      </Helmet>
       {/* ── Page Banner ─────────────────────────────── */}
       <div className="page-banner">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6">

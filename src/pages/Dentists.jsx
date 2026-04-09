@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { ArrowRight, Phone, Star, Award, BookOpen } from 'lucide-react'
 
@@ -31,6 +32,14 @@ const DENTISTS = [
 export default function Dentists() {
   return (
     <>
+      <Helmet>
+        <title>Our Dentists | Dr. Jadeep & Dr. Swathy – Cloud Nine Dental Ernakulam</title>
+        <meta name="description" content="Meet Dr. Jadeep R K A (MDS Endodontist) and Dr. Swathy J Menon (BDS) at Cloud Nine Dental, Padivattom, Ernakulam – experienced, gentle dental specialists in Kochi." />
+        <link rel="canonical" href="https://cloudninedental.in/dentists" />
+        <meta property="og:title" content="Meet Our Dentists – Cloud Nine Dental Ernakulam" />
+        <meta property="og:description" content="Dr. Jadeep R K A and Dr. Swathy J Menon – expert dental care with 10+ years combined experience in Ernakulam, Kochi." />
+        <meta property="og:url" content="https://cloudninedental.in/dentists" />
+      </Helmet>
       {/* Page Banner */}
       <div className="page-banner">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6 text-center">

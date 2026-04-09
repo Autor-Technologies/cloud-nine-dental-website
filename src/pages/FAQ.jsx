@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ChevronDown, ArrowRight, MessageCircle, Phone } from 'lucide-react'
@@ -55,6 +56,14 @@ export default function FAQ() {
 
   return (
     <>
+      <Helmet>
+        <title>Dental FAQs | Cloud Nine Dental – Ernakulam, Kochi</title>
+        <meta name="description" content="Frequently asked questions about Cloud Nine Dental – clinic timings, treatments, appointment booking, root canal, implants, children's dentistry and more." />
+        <link rel="canonical" href="https://cloudninedental.in/faq" />
+        <meta property="og:title" content="Dental FAQs – Cloud Nine Dental Ernakulam" />
+        <meta property="og:description" content="Answers to common questions about our dental clinic, services, and appointments in Padivattom, Ernakulam." />
+        <meta property="og:url" content="https://cloudninedental.in/faq" />
+      </Helmet>
       {/* Page Banner */}
       <div className="page-banner">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6 text-center">
