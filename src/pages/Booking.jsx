@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { CheckCircle, Calendar, Phone, Clock, ArrowRight } from 'lucide-react'
@@ -33,6 +34,14 @@ export default function Booking() {
 
   return (
     <>
+      <Helmet>
+        <title>Book Appointment | Cloud Nine Dental – Ernakulam, Kochi</title>
+        <meta name="description" content="Book your dental appointment at Cloud Nine Dental, Padivattom, Ernakulam online. Available Monday–Saturday 9AM–8PM, Sunday 10AM–2PM." />
+        <link rel="canonical" href="https://cloudninedental.in/booking" />
+        <meta property="og:title" content="Book a Dental Appointment – Cloud Nine Dental" />
+        <meta property="og:description" content="Schedule your dental visit at Cloud Nine Dental in Ernakulam, Kochi. Online booking available." />
+        <meta property="og:url" content="https://cloudninedental.in/booking" />
+      </Helmet>
       {/* Page Banner */}
       <div className="page-banner">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6 text-center">
@@ -58,7 +67,7 @@ export default function Booking() {
               <div className="bg-navy rounded-[20px] p-7 text-white">
                 <h3 className="font-urbanist font-extrabold text-[20px] mb-5">Clinic Information</h3>
                 {[
-                  { icon: Phone, text: '+91 XXXXX XXXXX', href: 'tel:+91XXXXXXXXXX' },
+                  { icon: Phone, text: '+91 90379 09046', href: 'tel:+919037909046' },
                   { icon: Clock, text: 'Mon–Sat: 9AM–8PM\nSun: 10AM–2PM', href: null },
                   { icon: Calendar, text: 'Same-day emergency appointments available', href: null },
                 ].map(({ icon: Icon, text, href }) => (
@@ -122,7 +131,7 @@ export default function Booking() {
                         <input type="text" name="name" required value={form.name} onChange={handleChange} placeholder="e.g. Priya Nair" className="bk-input" />
                       </BField>
                       <BField label="Phone Number" required>
-                        <input type="tel" name="phone" required value={form.phone} onChange={handleChange} placeholder="+91 XXXXX XXXXX" className="bk-input" />
+                        <input type="tel" name="phone" required value={form.phone} onChange={handleChange} placeholder="+91 90379 09046" className="bk-input" />
                       </BField>
                     </div>
 
@@ -161,7 +170,7 @@ export default function Booking() {
 
                     <p className="text-center text-body text-xs">
                       Or call us directly at{' '}
-                      <a href="tel:+91XXXXXXXXXX" className="text-brand-blue font-semibold hover:underline">+91 XXXXX XXXXX</a>
+                      <a href="tel:+919037909046" className="text-brand-blue font-semibold hover:underline">+91 90379 09046</a>
                     </p>
                   </form>
                 </>

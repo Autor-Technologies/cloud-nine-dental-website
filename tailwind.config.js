@@ -8,7 +8,8 @@ export default {
     extend: {
       fontFamily: {
         urbanist: ['Urbanist', 'Helvetica', 'Arial', 'sans-serif'],
-        inter:    ['Inter', 'Helvetica', 'Arial', 'sans-serif'],
+        display:  ['"Playfair Display"', 'Georgia', 'serif'],
+        sans:     ['"DM Sans"', 'Helvetica', 'Arial', 'sans-serif'],
       },
       colors: {
         /* ── Cloud Nine Dental brand palette ───────────── */

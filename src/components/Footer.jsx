@@ -1,29 +1,14 @@
 import { Link } from 'react-router-dom'
 import { MapPin, Phone, Mail, Clock, Instagram, Facebook, Youtube } from 'lucide-react'
 
-/* ── Cloud Nine Dental Logo SVG (faithful replica of clinic logo) ── */
+/* ── Cloud Nine Dental Logo ── */
 function CloudHaloLogo({ size = 44 }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Cloud Nine Dental">
-      <rect width="100" height="100" rx="18" fill="#4A5520" />
-      <ellipse cx="50" cy="18" rx="16" ry="5.5" stroke="url(#fHaloGrad)" strokeWidth="3.8" fill="none" />
-      <ellipse cx="50" cy="68" rx="34" ry="18" fill="white" fillOpacity="0.18" />
-      <path d="M18 78 Q17 66 25 64 Q24 53 33 50 Q34 40 44 40 Q48 34 54 36 Q62 33 66 41 Q75 41 76 52 Q84 54 83 65 Q83 79 74 80 L26 80 Q18 80 18 78 Z" fill="white" />
-      <path d="M38 72 Q37 63 39 58 Q40 51 44 48 Q46 44 50 44 Q54 44 56 48 Q60 51 61 58 Q63 63 62 72 Q61 77 58 77 Q56 77 55 73 Q53 69 50 69 Q47 69 45 73 Q44 77 42 77 Q39 77 38 72 Z"
-        fill="none" stroke="url(#fToothGrad)" strokeWidth="2.6" strokeLinejoin="round" />
-      <path d="M44 51 Q46 47 49 49" stroke="url(#fToothGrad)" strokeWidth="2" strokeLinecap="round" fill="none" />
-      <defs>
-        <linearGradient id="fHaloGrad" x1="34" y1="12" x2="66" y2="24" gradientUnits="userSpaceOnUse">
-          <stop offset="0%" stopColor="#F0C840" />
-          <stop offset="50%" stopColor="#C8A020" />
-          <stop offset="100%" stopColor="#E8B830" />
-        </linearGradient>
-        <linearGradient id="fToothGrad" x1="38" y1="44" x2="62" y2="77" gradientUnits="userSpaceOnUse">
-          <stop offset="0%" stopColor="#E8C040" />
-          <stop offset="100%" stopColor="#C08018" />
-        </linearGradient>
-      </defs>
-    </svg>
+    <img
+      src="/images/logo.png"
+      alt="Cloud Nine Dental"
+      style={{ width: size, height: size, objectFit: 'cover', borderRadius: 10 }}
+    />
   )
 }
 
@@ -128,8 +113,8 @@ export default function Footer() {
               </li>
               <li className="flex gap-3 items-center">
                 <Phone size={15} className="text-brand-yellow flex-shrink-0" />
-                <a href="tel:+91XXXXXXXXXX" className="text-green-200/70 hover:text-brand-yellow text-sm transition-colors">
-                  +91 XXXXX XXXXX
+                <a href="tel:+919037909046" className="text-green-200/70 hover:text-brand-yellow text-sm transition-colors">
+                  +91 90379 09046
                 </a>
               </li>
               <li className="flex gap-3 items-center">

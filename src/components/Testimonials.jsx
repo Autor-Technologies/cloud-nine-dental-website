@@ -1,116 +1,168 @@
-import { Star, Quote } from 'lucide-react'
+import { useState, useEffect, useCallback } from 'react'
+import { Star, ChevronLeft, ChevronRight } from 'lucide-react'
 
 const REVIEWS = [
   {
-    name: 'Anitha Menon',
-    role: 'Orthodontics Patient',
-    text: 'The team at Cloud Nine Dental is absolutely wonderful. My Invisalign treatment was explained thoroughly and every appointment was smooth. My smile has never looked better!',
-    rating: 5,
-    initials: 'AM',
-    color: 'bg-teal-500',
+    name: 'Aji KJ',
+    initials: 'AK',
+    color: 'bg-[#4A5520]',
+    text: 'Excellent service! The hospital is newly opened and well-maintained. The doctor is very professional and gave a good explanation of my dental issues. Highly recommended.',
   },
   {
-    name: 'Rahul Krishnan',
-    role: 'Dental Implant Patient',
-    text: 'I was very nervous about getting implants, but the dentist made me feel completely at ease. The procedure was painless and the results are incredible. Highly recommend!',
-    rating: 5,
-    initials: 'RK',
-    color: 'bg-violet-500',
+    name: 'Amy Dileep',
+    initials: 'AD',
+    color: 'bg-[#6B7F2A]',
+    text: 'Very good and welcoming clinic. Dr Swathy was very gentle and friendly. She took time and explained everything. Highly recommended 👍👍 Everything was well organised and clean and very affordable.',
   },
   {
-    name: 'Priya Thomas',
-    role: 'Cosmetic Dentistry Patient',
-    text: 'Professional, clean, and friendly clinic. My veneers look completely natural. The team genuinely cares about patient satisfaction. Best dental clinic in Kochi!',
-    rating: 5,
-    initials: 'PT',
-    color: 'bg-amber-500',
+    name: 'Sangeeth J Menon',
+    initials: 'SJ',
+    color: 'bg-[#3A4418]',
+    text: 'I had a good experience at this clinic. Dr. Swathy and Dr. Jadeep were very professional and took time to explain everything clearly. The staff were polite and helpful. Overall, the experience was smooth and comfortable. Highly recommended.',
   },
   {
-    name: 'Sanjay Nair',
-    role: 'Root Canal Patient',
-    text: 'Had a root canal done here and contrary to what I expected, it was completely pain-free. The doctor was patient, explained every step, and the aftercare was excellent.',
-    rating: 5,
-    initials: 'SN',
-    color: 'bg-sky-500',
+    name: 'Kavya S Panicker',
+    initials: 'KP',
+    color: 'bg-[#4A5520]',
+    text: 'I had a great experience at this clinic. The entire team is highly professional, friendly, and attentive to patient comfort. Dr takes time to explain procedures clearly and ensures that the patient feel at ease throughout the visit. Highly recommended.',
   },
   {
-    name: 'Deepa Varghese',
-    role: 'General Dentistry Patient',
-    text: 'Brought my 6-year-old for his first dental visit. The staff made it such a fun experience for him! We both left smiling. Wonderful pediatric care.',
-    rating: 5,
-    initials: 'DV',
-    color: 'bg-rose-500',
+    name: 'Raihanath C M',
+    initials: 'RC',
+    color: 'bg-[#6B7F2A]',
+    text: 'I had a wonderful experience with Dr Swathy at Cloud Nine Dental. The staff was incredibly friendly and professional, making me feel comfortable through my treatment. The clinic is very clean, and I am very satisfied with the results. Highly recommended.',
   },
   {
-    name: 'Arun George',
-    role: 'Teeth Whitening Patient',
-    text: 'The teeth whitening result was dramatic — multiple shades brighter in just one session. The clinic uses quality products and the price was very reasonable for Kochi.',
-    rating: 5,
-    initials: 'AG',
-    color: 'bg-green-500',
+    name: 'Keerthy PK',
+    initials: 'KP',
+    color: 'bg-[#3A4418]',
+    text: "I had a wonderful experience at Cloud Nine Dental Clinic. True to the name, they really go above and beyond to make sure you're comfortable and stress-free. The clinic is modern, clean, and the staff is incredibly welcoming. If you're looking for a dentist who prioritizes patient care, this is the place.",
   },
 ]
 
-function StarRating({ count }) {
+function GoogleG({ size = 18 }) {
   return (
-    <div className="flex gap-0.5">
-      {[...Array(count)].map((_, i) => (
-        <Star key={i} size={13} fill="currentColor" className="text-amber-400" />
-      ))}
-    </div>
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
+      <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+      <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+      <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
+      <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+    </svg>
+  )
+}
+
+function ReviewCard({ review }) {
+  return (
+    <article className="bg-white border border-gray-100 rounded-[20px] p-7 flex flex-col gap-4 shadow-sm h-full">
+      {/* Stars */}
+      <div className="flex gap-0.5">
+        {[...Array(5)].map((_, i) => (
+          <Star key={i} size={14} fill="#C8A020" color="#C8A020" />
+        ))}
+      </div>
+      {/* Text */}
+      <p className="text-body text-[14.5px] leading-relaxed flex-1">"{review.text}"</p>
+      {/* Reviewer */}
+      <div className="flex items-center gap-3 pt-3 border-t border-gray-100">
+        <div className={`w-10 h-10 ${review.color} rounded-full flex items-center justify-center flex-shrink-0`}>
+          <span className="font-urbanist font-bold text-[13px] text-white">{review.initials}</span>
+        </div>
+        <div>
+          <div className="font-urbanist font-bold text-navy text-[14px]">{review.name}</div>
+          <div className="flex items-center gap-1 text-body text-[11px] mt-0.5">
+            <GoogleG size={11} />
+            Google Review
+          </div>
+        </div>
+      </div>
+    </article>
   )
 }
 
 export default function Testimonials() {
-  return (
-    <section id="testimonials" className="py-20 md:py-28 bg-gradient-to-br from-slate-900 via-teal-950 to-slate-900 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  const [active, setActive] = useState(0)
+  const [paused, setPaused] = useState(false)
+  const total = REVIEWS.length
+  const visible = 3 // cards shown at once
 
-        {/* Header */}
+  const next = useCallback(() => setActive(a => (a + 1) % total), [total])
+  const prev = useCallback(() => setActive(a => (a - 1 + total) % total), [total])
+
+  useEffect(() => {
+    if (paused) return
+    const t = setInterval(next, 4000)
+    return () => clearInterval(t)
+  }, [paused, next])
+
+  // Build the 3 indices to show
+  const indices = Array.from({ length: visible }, (_, i) => (active + i) % total)
+
+  return (
+    <section
+      className="py-20 md:py-28 bg-[#F4F8EC]"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+    >
+      <div className="max-w-[1240px] mx-auto px-4 sm:px-6">
+
+        {/* Header — matches the design they showed */}
         <div className="text-center mb-14">
-          <span className="inline-block bg-teal-500/20 text-teal-300 text-xs font-bold px-4 py-1.5 rounded-full border border-teal-500/30 mb-4 tracking-wide uppercase">
-            Patient Reviews
-          </span>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-4">
-            What Our Patients Say
-          </h2>
-          <p className="text-slate-400 text-[17px] max-w-lg mx-auto leading-relaxed">
-            Real stories from real patients. Here's how we've helped families across Ernakulam smile with confidence.
+          <span className="section-label">Patient Reviews</span>
+          <h2 className="section-title">What Our Patients Say<br />About Us</h2>
+          <p className="section-sub mx-auto text-center mb-6">
+            Real stories from real patients who trust Cloud Nine Dental with their smiles.
           </p>
-          {/* Aggregate rating badge */}
-          <div className="inline-flex items-center gap-3 mt-6 bg-white/5 border border-white/10 rounded-2xl px-5 py-3">
+          {/* Google aggregate badge */}
+          <div className="inline-flex items-center gap-2.5 bg-white border border-gray-200 rounded-2xl px-5 py-2.5 shadow-sm">
+            <GoogleG size={18} />
             <div className="flex gap-0.5">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} size={16} fill="currentColor" className="text-amber-400" />
-              ))}
+              {[...Array(5)].map((_, i) => <Star key={i} size={14} fill="#C8A020" color="#C8A020" />)}
             </div>
-            <span className="text-white font-bold text-lg">4.9</span>
-            <span className="text-slate-400 text-sm">from 180+ reviews</span>
+            <span className="font-urbanist font-bold text-navy text-[15px]">5.0</span>
+            <span className="text-body text-sm">· Google Reviews</span>
           </div>
         </div>
 
-        {/* Reviews grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {REVIEWS.map(({ name, role, text, rating, initials, color }) => (
-            <article
-              key={name}
-              className="bg-white/5 hover:bg-white/10 border border-white/10 rounded-2xl p-6 flex flex-col gap-4 transition-colors duration-200"
-            >
-              <div className="flex items-start justify-between">
-                <StarRating count={rating} />
-                <Quote size={20} className="text-teal-500/60 flex-shrink-0" />
-              </div>
-              <p className="text-slate-300 text-sm leading-relaxed flex-1">"{text}"</p>
-              <div className="flex items-center gap-3 pt-2 border-t border-white/10">
-                <div className={`w-9 h-9 ${color} rounded-full flex items-center justify-center flex-shrink-0`}>
-                  <span className="text-white text-xs font-bold">{initials}</span>
-                </div>
-                <div>
-                  <div className="text-white font-semibold text-sm">{name}</div>
-                  <div className="text-slate-500 text-xs">{role}</div>
-                </div>
-              </div>
-            </article>
+        {/* Carousel */}
+        <div className="relative">
+
+          {/* Cards — 3 visible */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {indices.map((idx) => (
+              <ReviewCard key={idx} review={REVIEWS[idx]} />
+            ))}
+          </div>
+
+          {/* Prev / Next */}
+          <button
+            onClick={prev}
+            className="absolute -left-5 top-1/2 -translate-y-1/2 w-10 h-10 bg-white border border-gray-200 rounded-full shadow-md flex items-center justify-center hover:bg-navy hover:text-white hover:border-navy transition-colors z-10"
+            aria-label="Previous reviews"
+          >
+            <ChevronLeft size={18} />
+          </button>
+          <button
+            onClick={next}
+            className="absolute -right-5 top-1/2 -translate-y-1/2 w-10 h-10 bg-white border border-gray-200 rounded-full shadow-md flex items-center justify-center hover:bg-navy hover:text-white hover:border-navy transition-colors z-10"
+            aria-label="Next reviews"
+          >
+            <ChevronRight size={18} />
+          </button>
+        </div>
+
+        {/* Dot indicators */}
+        <div className="flex justify-center gap-2 mt-10">
+          {REVIEWS.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setActive(i)}
+              className={`rounded-full transition-all duration-300 ${
+                i === active
+                  ? 'w-6 h-2.5 bg-navy'
+                  : 'w-2.5 h-2.5 bg-navy/20 hover:bg-navy/40'
+              }`}
+              aria-label={`Go to review ${i + 1}`}
+            />
           ))}
         </div>
 
