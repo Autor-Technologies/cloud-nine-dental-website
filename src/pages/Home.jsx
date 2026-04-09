@@ -2,8 +2,9 @@ import { Link } from 'react-router-dom'
 import {
   ArrowRight, Phone, Star, CheckCircle,
   Shield, Sparkles, Zap, Smile, Activity,
-  Sun, Heart, Leaf, Crown
+  Sun, Heart, Leaf, Crown, Clock, Tag
 } from 'lucide-react'
+import { BLOGS } from '../data/blogs'
 
 /* ═══════════════════════════════════════════════════════
    HERO SECTION
@@ -487,6 +488,71 @@ function BookingCTA() {
 }
 
 /* ═══════════════════════════════════════════════════════
+   BLOG PREVIEW
+═══════════════════════════════════════════════════════ */
+function BlogPreview() {
+  const featured = BLOGS[0]
+  if (!featured) return null
+  return (
+    <section className="py-20 md:py-28 bg-white">
+      <div className="max-w-[1240px] mx-auto px-4 sm:px-6">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
+          <div>
+            <span className="section-label">From the Blog</span>
+            <h2 className="section-title mb-0">Latest Insights &amp; News</h2>
+          </div>
+          <Link to="/blog" className="btn-outline text-sm py-2.5 px-5 whitespace-nowrap self-start sm:self-auto">
+            All Articles <ArrowRight size={14} />
+          </Link>
+        </div>
+
+        <Link to={`/blog/${featured.slug}`} className="group block">
+          <div className="grid grid-cols-1 lg:grid-cols-2 rounded-3xl overflow-hidden border border-[#D6E2C4] bg-[#F4F8EC] hover:shadow-2xl transition-shadow duration-300">
+            {/* Image */}
+            <div className="h-[240px] sm:h-[300px] lg:h-auto overflow-hidden">
+              <img
+                src={featured.coverImage}
+                alt={featured.coverAlt}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            {/* Content */}
+            <div className="p-8 lg:p-12 flex flex-col justify-center">
+              <div className="flex items-center gap-3 mb-5">
+                <span
+                  className="inline-flex items-center gap-1.5 text-[11px] font-bold font-urbanist uppercase tracking-[0.12em] px-3 py-1 rounded-full"
+                  style={{ background: `${featured.categoryColor}20`, color: featured.categoryColor }}
+                >
+                  <Tag size={10} /> {featured.category}
+                </span>
+                <span className="text-body text-[12px] flex items-center gap-1.5">
+                  <Clock size={11} /> {featured.readTime}
+                </span>
+              </div>
+              <h3 className="font-display font-bold text-navy-mid text-[clamp(18px,2vw,26px)] leading-snug mb-4 group-hover:text-brand-blue transition-colors">
+                {featured.title}
+              </h3>
+              <p className="text-body text-[14px] leading-relaxed mb-7 line-clamp-3">
+                {featured.excerpt}
+              </p>
+              <div className="flex items-center justify-between">
+                <div>
+                  <div className="font-urbanist font-semibold text-navy text-[13px]">{featured.author}</div>
+                  <div className="text-body text-[12px]">{featured.date}</div>
+                </div>
+                <span className="flex items-center gap-1.5 font-urbanist font-bold text-brand-blue text-sm group-hover:gap-3 transition-all">
+                  Read Article <ArrowRight size={14} />
+                </span>
+              </div>
+            </div>
+          </div>
+        </Link>
+      </div>
+    </section>
+  )
+}
+
+/* ═══════════════════════════════════════════════════════
    HOME PAGE
 ═══════════════════════════════════════════════════════ */
 export default function Home() {
@@ -499,6 +565,7 @@ export default function Home() {
       <TeamTeaser />
       <ClinicGallery />
       <Testimonials />
+      <BlogPreview />
       <BookingCTA />
     </>
   )

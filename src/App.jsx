@@ -9,6 +9,8 @@ import Dentists from './pages/Dentists'
 import FAQ from './pages/FAQ'
 import Contact from './pages/Contact'
 import Booking from './pages/Booking'
+import Blog from './pages/Blog'
+import BlogPost from './pages/BlogPost'
 
 function RootLayout() {
   return (
@@ -36,6 +38,8 @@ const router = createBrowserRouter([
       { path: 'faq', element: <FAQ /> },
       { path: 'contact', element: <Contact /> },
       { path: 'booking', element: <Booking /> },
+      { path: 'blog', element: <Blog /> },
+      { path: 'blog/:slug', element: <BlogPost /> },
       {
         path: '*',
         element: (
