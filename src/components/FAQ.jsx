@@ -8,7 +8,7 @@ const FAQS = [
   },
   {
     q: 'What are your clinic timings?',
-    a: 'We are open Monday to Saturday from 9:00 AM to 8:00 PM and Sundays from 10:00 AM to 2:00 PM. We also accommodate same-day emergency appointments — call us to check availability.',
+    a: 'We are open Monday to Saturday from 10:00 AM to 8:00 PM and Sundays from 10:00 AM to 1:00 PM. We also accommodate same-day emergency appointments — call us to check availability.',
   },
   {
     q: 'Is dental implant surgery painful?',

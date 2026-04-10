@@ -61,8 +61,7 @@ export default function Footer() {
             <Link to="/" className="flex items-center gap-2.5 mb-5">
               <CloudHaloLogo size={38} />
               <div className="leading-tight">
-                <div className="font-urbanist font-extrabold text-white text-[16px] tracking-tight">Cloud Nine</div>
-                <div className="font-urbanist text-brand-yellow text-[10px] font-bold tracking-[0.2em] uppercase">Dental</div>
+                <div className="font-urbanist font-extrabold text-white text-[16px] tracking-tight">Cloud Nine Dental</div>
               </div>
             </Link>
 
@@ -141,8 +140,8 @@ export default function Footer() {
               <li className="flex gap-3">
                 <Clock size={15} className="text-brand-yellow flex-shrink-0 mt-0.5" />
                 <div className="text-green-200/70 text-sm">
-                  Mon–Sat: 9:00 AM – 8:00 PM<br />
-                  Sunday: 10:00 AM – 2:00 PM
+                  Mon–Sat: 10:00 AM – 8:00 PM<br />
+                  Sunday: 10:00 AM – 1:00 PM
                 </div>
               </li>
             </ul>

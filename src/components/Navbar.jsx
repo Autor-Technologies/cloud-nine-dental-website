@@ -140,7 +140,7 @@ export default function Navbar() {
         <div className="max-w-[1240px] mx-auto px-6 flex items-center justify-between">
           <div className="flex items-center gap-6 text-[13px] text-green-200/80">
             <span>📍 Opp. Lenskart, Padivattom, Ernakulam, Kochi</span>
-            <span>⏰ Mon–Sat: 9AM–8PM &nbsp;|&nbsp; Sun: 10AM–2PM</span>
+            <span>⏰ Mon–Sat: 10AM–8PM &nbsp;|&nbsp; Sun: 10AM–1PM</span>
           </div>
           <a href="tel:+91XXXXXXXXXX"
             className="flex items-center gap-1.5 text-[13px] text-brand-yellow font-semibold hover:text-white transition-colors">
@@ -159,7 +159,7 @@ export default function Navbar() {
             <CloudHaloLogo size={44} />
             <div className="leading-tight">
               <div className={`font-urbanist font-extrabold text-[16px] tracking-tight leading-none transition-colors ${isDark ? 'text-white' : 'text-navy-mid'}`}>
-                Cloud Nine
+                Cloud Nine Dental
               </div>
               <div className="font-urbanist text-brand-yellow text-[9px] font-bold tracking-[0.15em] uppercase">Discovering Heavenly Smiles</div>
             </div>

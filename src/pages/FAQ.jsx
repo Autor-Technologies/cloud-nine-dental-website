@@ -7,7 +7,7 @@ const FAQS = [
     category: 'General',
     items: [
       { q: 'Where is Cloud Nine Dental located?', a: 'Cloud Nine Dental is located opposite Lenskart, Padivattom, Ernakulam, Kochi, Kerala – 682024. We are easily accessible from Edapally, Kakkanad, and the NH Bypass.' },
-      { q: 'What are your clinic timings?', a: 'We are open Monday to Saturday from 9:00 AM to 8:00 PM and on Sundays from 10:00 AM to 2:00 PM. Same-day emergency appointments are also available — call us to check availability.' },
+      { q: 'What are your clinic timings?', a: 'We are open Monday to Saturday from 10:00 AM to 8:00 PM and on Sundays from 10:00 AM to 1:00 PM. Same-day emergency appointments are also available — call us to check availability.' },
       { q: 'Do I need to book an appointment in advance?', a: 'While walk-ins are welcome for emergency cases, we strongly recommend booking in advance to minimise waiting time. You can book online via our booking page or call us directly.' },
       { q: 'What payment methods do you accept?', a: 'We accept cash, all major credit and debit cards, UPI (GPay, PhonePe, Paytm), and net banking. EMI options may be available for select major treatments — ask our reception team.' },
     ]
