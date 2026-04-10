@@ -45,7 +45,7 @@ export default function Contact() {
             {/* Info cards */}
             <div className="bg-slate-50 rounded-2xl p-7 border border-slate-100 flex flex-col gap-5">
               <InfoRow icon={MapPin} label="Address" value="Opp. Lenskart, Padivattom, Ernakulam, Kochi – Kerala 682024" />
-              <InfoRow icon={Phone} label="Phone" value="+91 XXXXX XXXXX" href="tel:+91XXXXXXXXXX" />
+              <InfoRow icon={Phone} label="Phone" value="+91 90379 09046" href="tel:+919037909046" />
               <InfoRow icon={Mail} label="Email" value="info@cloudninedental.in" href="mailto:info@cloudninedental.in" />
             </div>
 
@@ -121,7 +121,7 @@ export default function Contact() {
                   <input
                     type="tel" name="phone" required
                     value={form.phone} onChange={handleChange}
-                    placeholder="+91 XXXXX XXXXX"
+                    placeholder="+91 90379 09046"
                     className="field-input"
                   />
                 </Field>
@@ -165,8 +165,8 @@ export default function Contact() {
 
                 <p className="text-center text-slate-400 text-xs">
                   Or call us directly at{' '}
-                  <a href="tel:+91XXXXXXXXXX" className="text-teal-600 font-semibold hover:underline">
-                    +91 XXXXX XXXXX
+                  <a href="tel:+919037909046" className="text-teal-600 font-semibold hover:underline">
+                    +91 90379 09046
                   </a>
                 </p>
               </form>

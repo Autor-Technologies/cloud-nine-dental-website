@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { MapPin, Phone, Mail, Clock, Send } from 'lucide-react'
@@ -23,6 +24,14 @@ export default function Contact() {
 
   return (
     <>
+      <Helmet>
+        <title>Contact Us | Cloud Nine Dental – Padivattom, Ernakulam</title>
+        <meta name="description" content="Contact Cloud Nine Dental in Padivattom, Ernakulam, Kochi. Call +91 90379 09046, email info@cloudninedental.in, or book an appointment online." />
+        <link rel="canonical" href="https://cloudninedental.in/contact" />
+        <meta property="og:title" content="Contact Cloud Nine Dental | Ernakulam" />
+        <meta property="og:description" content="Get in touch with Cloud Nine Dental – call, email, or visit us opposite Lenskart, Padivattom, Ernakulam, Kochi." />
+        <meta property="og:url" content="https://cloudninedental.in/contact" />
+      </Helmet>
       {/* Page Banner */}
       <div className="page-banner">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6 text-center">
@@ -45,7 +54,7 @@ export default function Contact() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {[
               { icon: MapPin, label: 'Our Location', value: 'Opp. Lenskart, Padivattom, Ernakulam, Kochi – 682024', href: null },
-              { icon: Phone, label: 'Phone', value: '+91 XXXXX XXXXX', href: 'tel:+91XXXXXXXXXX' },
+              { icon: Phone, label: 'Phone', value: '+91 90379 09046', href: 'tel:+919037909046' },
               { icon: Mail, label: 'Email', value: 'info@cloudninedental.in', href: 'mailto:info@cloudninedental.in' },
               { icon: Clock, label: 'Working Hours', value: 'Mon–Sat: 10AM–8PM\nSun: 10AM–1PM', href: null },
             ].map(({ icon: Icon, label, value, href }) => (
@@ -73,7 +82,7 @@ export default function Contact() {
           <div className="grid grid-cols-3 gap-3 h-[220px] rounded-[20px] overflow-hidden">
             <div className="col-span-2 overflow-hidden">
               <img
-                src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=900&h=300&fit=crop&auto=format&q=80"
+                src="/images/reception.jpg"
                 alt="Cloud Nine Dental clinic interior"
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
               />
@@ -81,14 +90,14 @@ export default function Contact() {
             <div className="flex flex-col gap-3">
               <div className="flex-1 overflow-hidden rounded-tr-[20px]">
                 <img
-                  src="https://images.unsplash.com/photo-1571772996211-2f02c9727629?w=400&h=150&fit=crop&auto=format&q=80"
+                  src="/images/treatment-room-1.jpg"
                   alt="Modern dental equipment"
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                 />
               </div>
               <div className="flex-1 overflow-hidden rounded-br-[20px]">
                 <img
-                  src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=400&h=150&fit=crop&auto=format&q=80"
+                  src="/images/treatment-room-2.jpg"
                   alt="Dentist with patient"
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                 />
@@ -127,7 +136,7 @@ export default function Contact() {
                       <input type="text" name="name" required value={form.name} onChange={handleChange} placeholder="Your full name" className="cf-input" />
                     </CField>
                     <CField label="Phone Number" required>
-                      <input type="tel" name="phone" required value={form.phone} onChange={handleChange} placeholder="+91 XXXXX XXXXX" className="cf-input" />
+                      <input type="tel" name="phone" required value={form.phone} onChange={handleChange} placeholder="+91 90379 09046" className="cf-input" />
                     </CField>
                   </div>
                   <CField label="Email Address">

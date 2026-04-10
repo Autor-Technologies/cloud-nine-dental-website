@@ -2,8 +2,17 @@ import { useState, useEffect, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Menu, X, Phone, ChevronDown } from 'lucide-react'
 
-/* ── Cloud Nine Dental Logo SVG (faithful replica of clinic logo) ── */
+/* ── Cloud Nine Dental Logo ── */
 function CloudHaloLogo({ size = 44 }) {
+  return (
+    <img
+      src="/images/logo.png"
+      alt="Cloud Nine Dental"
+      style={{ width: size, height: size, objectFit: 'cover', borderRadius: 10 }}
+    />
+  )
+}
+function CloudHaloLogoUnused({ size = 44 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Cloud Nine Dental">
       {/* Dark olive green square background */}
@@ -142,10 +151,10 @@ export default function Navbar() {
             <span>📍 Opp. Lenskart, Padivattom, Ernakulam, Kochi</span>
             <span>⏰ Mon–Sat: 10AM–8PM &nbsp;|&nbsp; Sun: 10AM–1PM</span>
           </div>
-          <a href="tel:+91XXXXXXXXXX"
+          <a href="tel:+919037909046"
             className="flex items-center gap-1.5 text-[13px] text-brand-yellow font-semibold hover:text-white transition-colors">
             <Phone size={13} />
-            +91 XXXXX XXXXX
+            +91 90379 09046
           </a>
         </div>
       </div>
@@ -156,7 +165,7 @@ export default function Navbar() {
 
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2.5" aria-label="Cloud Nine Dental – Home">
-            <CloudHaloLogo size={44} />
+            <CloudHaloLogo size={52} />
             <div className="leading-tight">
               <div className={`font-urbanist font-extrabold text-[16px] tracking-tight leading-none transition-colors ${isDark ? 'text-white' : 'text-navy-mid'}`}>
                 Cloud Nine Dental

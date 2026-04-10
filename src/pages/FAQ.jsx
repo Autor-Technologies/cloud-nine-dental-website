@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ChevronDown, ArrowRight, MessageCircle, Phone } from 'lucide-react'
@@ -55,6 +56,14 @@ export default function FAQ() {
 
   return (
     <>
+      <Helmet>
+        <title>Dental FAQs | Cloud Nine Dental – Ernakulam, Kochi</title>
+        <meta name="description" content="Frequently asked questions about Cloud Nine Dental – clinic timings, treatments, appointment booking, root canal, implants, children's dentistry and more." />
+        <link rel="canonical" href="https://cloudninedental.in/faq" />
+        <meta property="og:title" content="Dental FAQs – Cloud Nine Dental Ernakulam" />
+        <meta property="og:description" content="Answers to common questions about our dental clinic, services, and appointments in Padivattom, Ernakulam." />
+        <meta property="og:url" content="https://cloudninedental.in/faq" />
+      </Helmet>
       {/* Page Banner */}
       <div className="page-banner">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6 text-center">
@@ -80,7 +89,7 @@ export default function FAQ() {
             {/* Image */}
             <div className="h-[300px] lg:h-[380px] overflow-hidden">
               <img
-                src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=800&h=500&fit=crop&auto=format&q=80"
+                src="/images/treatment-room-1.jpg"
                 alt="Friendly dental team at Cloud Nine Dental"
                 className="w-full h-full object-cover"
               />
@@ -96,7 +105,7 @@ export default function FAQ() {
               </p>
               <div className="flex flex-wrap gap-3">
                 <Link to="/booking" className="btn-primary">Book Appointment <ArrowRight size={14} /></Link>
-                <a href="tel:+91XXXXXXXXXX" className="btn-outline"><Phone size={14} /> Call Us</a>
+                <a href="tel:+919037909046" className="btn-outline"><Phone size={14} /> Call Us</a>
               </div>
             </div>
           </div>
@@ -131,7 +140,7 @@ export default function FAQ() {
           {/* Still have questions — image CTA */}
           <div className="relative rounded-[20px] overflow-hidden mt-8">
             <img
-              src="https://images.unsplash.com/photo-1571772996211-2f02c9727629?w=900&h=300&fit=crop&auto=format&q=70"
+              src="/images/clinic-exterior.jpg"
               alt=""
               aria-hidden="true"
               className="absolute inset-0 w-full h-full object-cover"

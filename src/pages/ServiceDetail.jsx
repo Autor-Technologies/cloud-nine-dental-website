@@ -1,10 +1,12 @@
+import { Helmet } from 'react-helmet-async'
 import { useParams, Link } from 'react-router-dom'
 import { ArrowRight, CheckCircle, Clock, Star, Phone, Shield } from 'lucide-react'
 
-/* ── Per-service images (all confirmed-working Unsplash IDs) ── */
+/* ── Per-service images ── */
+// Real clinic photos used selectively — hero for General Dentistry & Root Canal only
 const IMG = {
   'general-dentistry': {
-    hero: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1400&h=500&fit=crop&auto=format&q=80',
+    hero: '/images/reception.jpg',
     g1:   'https://images.unsplash.com/photo-1571772996211-2f02c9727629?w=600&h=380&fit=crop&auto=format&q=80',
     g2:   'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600&h=380&fit=crop&auto=format&q=80',
     g3:   'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&h=380&fit=crop&auto=format&q=80',
@@ -28,7 +30,7 @@ const IMG = {
     g3:   'https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=600&h=380&fit=crop&auto=format&q=80',
   },
   'root-canal': {
-    hero: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1400&h=500&fit=crop&auto=format&q=80',
+    hero: '/images/treatment-room-1.jpg',
     g1:   'https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=600&h=380&fit=crop&auto=format&q=80',
     g2:   'https://images.unsplash.com/photo-1571772996211-2f02c9727629?w=600&h=380&fit=crop&auto=format&q=80',
     g3:   'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=600&h=380&fit=crop&auto=format&q=80',
@@ -161,8 +163,18 @@ export default function ServiceDetail() {
 
   const { title, tagline, desc, desc2, benefits, duration, color } = service
 
+  const metaDesc = `${desc.slice(0, 140)}... Book at Cloud Nine Dental, Padivattom, Ernakulam.`
+
   return (
     <>
+      <Helmet>
+        <title>{title} in Ernakulam | Cloud Nine Dental, Kochi</title>
+        <meta name="description" content={metaDesc} />
+        <link rel="canonical" href={`https://cloudninedental.in/services/${slug}`} />
+        <meta property="og:title" content={`${title} – Cloud Nine Dental Ernakulam`} />
+        <meta property="og:description" content={metaDesc} />
+        <meta property="og:url" content={`https://cloudninedental.in/services/${slug}`} />
+      </Helmet>
       {/* ── Page Banner ─────────────────────────────── */}
       <div className="page-banner">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6">
@@ -245,7 +257,7 @@ export default function ServiceDetail() {
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                 {[
                   { val: '500+', lbl: 'Happy Patients' },
-                  { val: '4.9★', lbl: 'Rating' },
+                  { val: '5.0★', lbl: 'Rating' },
                   { val: '10+',  lbl: 'Years Experience' },
                   { val: '7',    lbl: 'Days a Week' },
                 ].map(({ val, lbl }) => (
@@ -268,18 +280,18 @@ export default function ServiceDetail() {
                 </div>
                 <div className="p-7">
                   <div className="flex gap-0.5 mb-3">
-                    {[...Array(5)].map((_, i) => <Star key={i} size={13} fill="#E07B35" color="#E07B35" />)}
+                    {[...Array(5)].map((_, i) => <Star key={i} size={13} fill="#C8A020" color="#C8A020" />)}
                   </div>
-                  <h3 className="font-urbanist font-extrabold text-[20px] mb-2">Book This Treatment</h3>
+                  <h3 className="font-urbanist font-extrabold text-white text-[20px] mb-2">Book This Treatment</h3>
                   <p className="text-green-200/70 text-sm leading-relaxed mb-5">
                     Ready to get started? Book online and our team will confirm within a few hours.
                   </p>
                   <Link to="/booking" className="btn-white w-full justify-center mb-3">
                     Book Appointment <ArrowRight size={14} />
                   </Link>
-                  <a href="tel:+91XXXXXXXXXX"
+                  <a href="tel:+919037909046"
                     className="flex items-center justify-center gap-2 text-green-200/70 hover:text-white text-sm transition-colors py-2">
-                    <Phone size={14} /> Or call: +91 XXXXX XXXXX
+                    <Phone size={14} /> Or call: +91 90379 09046
                   </a>
                 </div>
               </div>
@@ -326,7 +338,7 @@ export default function ServiceDetail() {
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link to="/booking" className="btn-white">Book Now <ArrowRight size={14} /></Link>
-            <a href="tel:+91XXXXXXXXXX" className="btn-outline border-white text-white hover:bg-white hover:text-navy">
+            <a href="tel:+919037909046" className="btn-outline border-white text-white hover:bg-white hover:text-navy">
               <Phone size={14} /> Call Us
             </a>
           </div>

@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import {
   ArrowRight, Phone, Star, CheckCircle,
@@ -44,19 +45,19 @@ function Hero() {
               <div className="flex items-center gap-3 bg-white border border-gray-100 rounded-2xl px-4 py-3 shadow-sm">
                 <div>
                   <div className="flex gap-0.5 mb-0.5">
-                    {[...Array(5)].map((_, i) => <Star key={i} size={13} fill="#E07B35" color="#E07B35" />)}
+                    {[...Array(5)].map((_, i) => <Star key={i} size={13} fill="#C8A020" color="#C8A020" />)}
                   </div>
-                  <div className="text-[12px] text-gray-400 font-medium">4.9 · 180+ Reviews</div>
+                  <div className="text-[12px] text-gray-400 font-medium">5.0 · 200+ Reviews</div>
                 </div>
                 <div className="font-urbanist font-bold text-navy text-[13px]">Google Rating</div>
               </div>
-              <a href="tel:+91XXXXXXXXXX" className="flex items-center gap-3 bg-navy text-white rounded-2xl px-4 py-3 hover:bg-navy-mid transition-colors">
+              <a href="tel:+919037909046" className="flex items-center gap-3 bg-navy text-white rounded-2xl px-4 py-3 hover:bg-navy-mid transition-colors">
                 <div className="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center">
                   <Phone size={14} />
                 </div>
                 <div>
                   <div className="text-[11px] text-green-200/70 font-medium">Call us now</div>
-                  <div className="font-urbanist font-bold text-[13px]">+91 XXXXX XXXXX</div>
+                  <div className="font-urbanist font-bold text-[13px]">+91 90379 09046</div>
                 </div>
               </a>
             </div>
@@ -67,18 +68,19 @@ function Hero() {
             <div className="relative w-[440px] h-[520px]">
               <div className="absolute inset-0 rounded-[2.5rem] overflow-hidden shadow-2xl">
                 <img
-                  src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=880&h=1040&fit=crop&auto=format&q=80"
-                  alt="Dentist with patient at Cloud Nine Dental Ernakulam"
-                  className="w-full h-full object-cover"
+                  src="/images/reception.jpg"
+                  alt="Cloud Nine Dental reception and waiting area, Padivattom Ernakulam"
+                  className="w-full h-full object-cover object-center"
+                  onError={e => { e.currentTarget.src = 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=880&h=1040&fit=crop&auto=format&q=80' }}
                 />
-                <div className="absolute inset-0 bg-navy/10" />
+                <div className="absolute inset-0 bg-navy/5" />
               </div>
               {/* Floating stat cards */}
               <div className="absolute -left-10 top-16 bg-white rounded-2xl shadow-xl border border-gray-100 p-4 w-[150px]">
                 <div className="text-3xl font-urbanist font-extrabold text-navy mb-0.5">500+</div>
                 <div className="text-[12px] text-body font-medium">Happy Patients</div>
                 <div className="mt-2 flex gap-0.5">
-                  {[...Array(5)].map((_, i) => <Star key={i} size={10} fill="#E07B35" color="#E07B35" />)}
+                  {[...Array(5)].map((_, i) => <Star key={i} size={10} fill="#C8A020" color="#C8A020" />)}
                 </div>
               </div>
               <div className="absolute -right-8 bottom-24 bg-navy rounded-2xl shadow-xl p-4 w-[155px]">
@@ -106,7 +108,7 @@ function StatsBar() {
     { value: '500+', label: 'Happy Patients' },
     { value: '10+',  label: 'Years of Excellence' },
     { value: '9+',   label: 'Dental Treatments' },
-    { value: '4.9★', label: 'Patient Rating' },
+    { value: '5.0★', label: 'Patient Rating' },
   ]
   return (
     <section className="bg-navy py-14">
@@ -226,9 +228,10 @@ function WhyChooseUs() {
           <div className="relative">
             <div className="rounded-[24px] overflow-hidden h-[500px] shadow-2xl">
               <img
-                src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=700&h=600&fit=crop&auto=format&q=80"
-                alt="Expert dental team at Cloud Nine Dental"
-                className="w-full h-full object-cover"
+                src="/images/dr-jadeep.jpg"
+                alt="Dr. Jadeep R K A – Cloud Nine Dental, Ernakulam"
+                className="w-full h-full object-cover object-top"
+                onError={e => { e.currentTarget.src = 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=700&h=600&fit=crop&auto=format&q=80' }}
               />
               {/* Gradient overlay for readability of bottom stats */}
               <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/80 via-transparent to-transparent" />
@@ -237,7 +240,7 @@ function WhyChooseUs() {
             <div className="absolute bottom-6 left-6 right-6 grid grid-cols-2 gap-3">
               {[
                 { val: '500+', lbl: 'Happy Patients' },
-                { val: '4.9★', lbl: 'Google Rating' },
+                { val: '5.0★', lbl: 'Google Rating' },
                 { val: '10+',  lbl: 'Years Experience' },
                 { val: '7',    lbl: 'Days a Week' },
               ].map(({ val, lbl }) => (
@@ -289,9 +292,8 @@ function WhyChooseUs() {
    TEAM TEASER
 ═══════════════════════════════════════════════════════ */
 const TEAM = [
-  { name: 'Dr. Priya Nair',   role: 'Cosmetic Dentist & Implantologist', initials: 'PN', bg: 'from-[#7AB340] to-[#3A5A18]', img: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&h=420&fit=crop&auto=format&q=80' },
-  { name: 'Dr. Arjun Menon',  role: 'Orthodontist & Dental Surgeon',     initials: 'AM', bg: 'from-[#4F7A21] to-[#2D4A12]', img: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&h=420&fit=crop&auto=format&q=80' },
-  { name: 'Dr. Divya Thomas', role: 'Pediatric Dentist & Periodontist',  initials: 'DT', bg: 'from-[#7AB340] to-[#4F7A21]', img: 'https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=400&h=420&fit=crop&auto=format&q=80' },
+  { name: 'Dr. Swathy J Menon', role: 'Dental Surgeon – BDS',                        initials: 'SM', bg: 'from-[#6B7F2A] to-[#3A4418]', img: '/images/dr-swathy.jpg',  fallback: 'https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=400&h=420&fit=crop&auto=format&q=80' },
+  { name: 'Dr. Jadeep R K A',   role: 'Lead Dentist – BDS, MDS (Endodontics)',       initials: 'JR', bg: 'from-[#4A5520] to-[#2E3614]', img: '/images/dr-jadeep.jpg', fallback: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&h=420&fit=crop&auto=format&q=80' },
 ]
 
 function TeamTeaser() {
@@ -305,15 +307,15 @@ function TeamTeaser() {
             Our experienced, caring dental professionals are dedicated to making every visit positive and every smile healthier.
           </p>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-          {TEAM.map(({ name, role, initials, bg, img }) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 max-w-2xl mx-auto gap-6">
+          {TEAM.map(({ name, role, initials, bg, img, fallback }) => (
             <article key={name} className="card-hover group bg-white border border-gray-100 rounded-[20px] overflow-hidden text-center">
-              <div className={`h-64 bg-gradient-to-br ${bg} overflow-hidden relative`}>
+              <div className={`h-72 bg-gradient-to-br ${bg} overflow-hidden relative`}>
                 <img
                   src={img}
                   alt={name}
                   className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
-                  onError={e => { e.target.style.display='none'; e.target.nextSibling.style.display='flex' }}
+                  onError={e => { e.currentTarget.src = fallback }}
                 />
                 <div className="absolute inset-0 items-center justify-center hidden">
                   <div className="w-24 h-24 rounded-full bg-white/20 flex items-center justify-center">
@@ -332,7 +334,7 @@ function TeamTeaser() {
           ))}
         </div>
         <div className="text-center mt-10">
-          <Link to="/dentists" className="btn-outline">Meet All Dentists <ArrowRight size={15} /></Link>
+          <Link to="/dentists" className="btn-outline">Meet Our Dentists <ArrowRight size={15} /></Link>
         </div>
       </div>
     </section>
@@ -356,24 +358,27 @@ function ClinicGallery() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
           <div className="md:col-span-2 h-[320px] overflow-hidden rounded-2xl">
             <img
-              src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=900&h=420&fit=crop&auto=format&q=80"
-              alt="Dentist consultation – Cloud Nine Dental"
-              className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+              src="/images/reception.jpg"
+              alt="Cloud Nine Dental reception – Padivattom, Ernakulam"
+              className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-500"
+              onError={e => { e.currentTarget.src = 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=900&h=420&fit=crop&auto=format&q=80' }}
             />
           </div>
-          <div className="flex flex-col gap-4">
-            <div className="flex-1 h-[150px] overflow-hidden rounded-2xl">
+          <div className="flex flex-col gap-4 h-[320px]">
+            <div className="h-[152px] overflow-hidden rounded-2xl flex-shrink-0">
               <img
-                src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=500&h=200&fit=crop&auto=format&q=80"
-                alt="Dental treatment"
+                src="/images/treatment-room-1.jpg"
+                alt="Cloud Nine Dental treatment room"
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                onError={e => { e.currentTarget.src = 'https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=500&h=200&fit=crop&auto=format&q=80' }}
               />
             </div>
-            <div className="flex-1 h-[150px] overflow-hidden rounded-2xl">
+            <div className="h-[152px] overflow-hidden rounded-2xl flex-shrink-0">
               <img
-                src="https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=500&h=200&fit=crop&auto=format&q=80"
-                alt="Dental imaging technology"
+                src="/images/treatment-room-2.jpg"
+                alt="Cloud Nine Dental treatment room"
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                onError={e => { e.currentTarget.src = 'https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=500&h=200&fit=crop&auto=format&q=80' }}
               />
             </div>
           </div>
@@ -383,23 +388,26 @@ function ClinicGallery() {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <div className="h-[220px] overflow-hidden rounded-2xl">
             <img
-              src="https://images.unsplash.com/photo-1571772996211-2f02c9727629?w=500&h=280&fit=crop&auto=format&q=80"
-              alt="Modern dental clinic"
-              className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+              src="/images/clinic-exterior.jpg"
+              alt="Cloud Nine Dental clinic – Padivattom, Ernakulam"
+              className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500"
+              onError={e => { e.currentTarget.src = 'https://images.unsplash.com/photo-1571772996211-2f02c9727629?w=500&h=280&fit=crop&auto=format&q=80' }}
             />
           </div>
           <div className="h-[220px] overflow-hidden rounded-2xl">
             <img
-              src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=500&h=280&fit=crop&auto=format&q=80"
-              alt="Dental procedure"
+              src="/images/treatment-room-1.jpg"
+              alt="Modern dental equipment at Cloud Nine Dental"
               className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+              onError={e => { e.currentTarget.src = 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=500&h=280&fit=crop&auto=format&q=80' }}
             />
           </div>
           <div className="h-[220px] overflow-hidden rounded-2xl">
             <img
-              src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=500&h=280&fit=crop&auto=format&q=80"
-              alt="Our dental team"
+              src="/images/treatment-room-2.jpg"
+              alt="Treatment room at Cloud Nine Dental"
               className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+              onError={e => { e.currentTarget.src = 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=500&h=280&fit=crop&auto=format&q=80' }}
             />
           </div>
         </div>
@@ -409,44 +417,11 @@ function ClinicGallery() {
 }
 
 /* ═══════════════════════════════════════════════════════
-   TESTIMONIALS
+   TESTIMONIALS — imported carousel component
 ═══════════════════════════════════════════════════════ */
-const TESTIMONIALS = [
-  { name: 'Anitha Menon',  role: 'Orthodontics Patient',        text: 'The team at Cloud Nine Dental is absolutely wonderful. My aligner treatment was thoroughly explained and every appointment was smooth. My smile has never looked better!', rating: 5, initials: 'AM', bg: 'bg-navy' },
-  { name: 'Rahul Krishnan', role: 'Dental Implant Patient',     text: 'I was nervous about getting implants, but the dentist made me feel completely at ease. The procedure was painless and the results are incredible. Highly recommended!', rating: 5, initials: 'RK', bg: 'bg-brand-blue' },
-  { name: 'Priya Thomas',  role: 'Cosmetic Dentistry Patient',  text: 'Professional, clean, and friendly clinic. My veneers look completely natural. The team genuinely cares about patient satisfaction. Best dental clinic in Kochi!', rating: 5, initials: 'PT', bg: 'bg-brand-yellow' },
-]
-
+import TestimonialsCarousel from '../components/Testimonials'
 function Testimonials() {
-  return (
-    <section className="py-20 md:py-28 bg-white">
-      <div className="max-w-[1240px] mx-auto px-4 sm:px-6">
-        <div className="text-center mb-14">
-          <span className="section-label">Patient Reviews</span>
-          <h2 className="section-title">What Our Patients Say<br />About Us</h2>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {TESTIMONIALS.map(({ name, role, text, rating, initials, bg }) => (
-            <article key={name} className="card-hover bg-white rounded-[20px] border border-gray-100 p-7 flex flex-col gap-4">
-              <div className="flex gap-0.5">
-                {[...Array(rating)].map((_, i) => <Star key={i} size={14} fill="#E07B35" color="#E07B35" />)}
-              </div>
-              <p className="text-body text-[14.5px] leading-relaxed flex-1">"{text}"</p>
-              <div className="flex items-center gap-3 pt-3 border-t border-gray-100">
-                <div className={`w-10 h-10 ${bg} rounded-full flex items-center justify-center flex-shrink-0`}>
-                  <span className="font-urbanist font-bold text-[13px] text-white">{initials}</span>
-                </div>
-                <div>
-                  <div className="font-urbanist font-bold text-navy text-[14px]">{name}</div>
-                  <div className="text-body text-[12px]">{role}</div>
-                </div>
-              </div>
-            </article>
-          ))}
-        </div>
-      </div>
-    </section>
-  )
+  return <TestimonialsCarousel />
 }
 
 /* ═══════════════════════════════════════════════════════
@@ -457,10 +432,11 @@ function BookingCTA() {
     <section className="relative py-24 overflow-hidden">
       {/* Background image */}
       <img
-        src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1600&h=600&fit=crop&auto=format&q=70"
+        src="/images/clinic-exterior.jpg"
         alt=""
         aria-hidden="true"
-        className="absolute inset-0 w-full h-full object-cover"
+        className="absolute inset-0 w-full h-full object-cover object-top"
+        onError={e => { e.currentTarget.src = 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1600&h=600&fit=crop&auto=format&q=70' }}
       />
       {/* Dark olive overlay */}
       <div className="absolute inset-0 bg-navy-dark/85" />
@@ -477,7 +453,7 @@ function BookingCTA() {
           <Link to="/booking" className="btn-white">
             Book Appointment <ArrowRight size={15} />
           </Link>
-          <a href="tel:+91XXXXXXXXXX" className="btn-outline border-white text-white hover:bg-white hover:text-navy">
+          <a href="tel:+919037909046" className="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm border-2 border-white text-white font-urbanist font-bold text-[15px] px-7 py-3 rounded-lg hover:bg-white hover:text-navy transition-colors duration-200">
             <Phone size={15} /> Call Us Now
           </a>
         </div>
@@ -492,6 +468,11 @@ function BookingCTA() {
 export default function Home() {
   return (
     <>
+      <Helmet>
+        <title>Cloud Nine Dental | Best Dental Clinic in Padivattom, Ernakulam, Kochi</title>
+        <meta name="description" content="Cloud Nine Dental – expert dental care in Padivattom, Ernakulam. Dental implants, orthodontics, cosmetic dentistry, root canal & more. Opp. Lenskart, Kochi. Call +91 90379 09046." />
+        <link rel="canonical" href="https://cloudninedental.in/" />
+      </Helmet>
       <Hero />
       <StatsBar />
       <ServicesOverview />
