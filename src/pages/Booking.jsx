@@ -68,7 +68,7 @@ export default function Booking() {
                 <h3 className="font-urbanist font-extrabold text-[20px] mb-5">Clinic Information</h3>
                 {[
                   { icon: Phone, text: '+91 90379 09046', href: 'tel:+919037909046' },
-                  { icon: Clock, text: 'Mon–Sat: 9AM–8PM\nSun: 10AM–2PM', href: null },
+                  { icon: Clock, text: 'Mon–Sat: 10AM–8PM\nSun: 10AM–1PM', href: null },
                   { icon: Calendar, text: 'Same-day emergency appointments available', href: null },
                 ].map(({ icon: Icon, text, href }) => (
                   <div key={text} className="flex gap-3 mb-4 last:mb-0">

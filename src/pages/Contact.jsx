@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom'
 import { MapPin, Phone, Mail, Clock, Send } from 'lucide-react'
 
 const HOURS = [
-  { day: 'Monday – Friday', time: '9:00 AM – 8:00 PM' },
-  { day: 'Saturday', time: '9:00 AM – 8:00 PM' },
-  { day: 'Sunday', time: '10:00 AM – 2:00 PM' },
+  { day: 'Monday – Friday', time: '10:00 AM – 8:00 PM' },
+  { day: 'Saturday', time: '10:00 AM – 8:00 PM' },
+  { day: 'Sunday', time: '10:00 AM – 1:00 PM' },
 ]
 
 export default function Contact() {
@@ -56,7 +56,7 @@ export default function Contact() {
               { icon: MapPin, label: 'Our Location', value: 'Opp. Lenskart, Padivattom, Ernakulam, Kochi – 682024', href: null },
               { icon: Phone, label: 'Phone', value: '+91 90379 09046', href: 'tel:+919037909046' },
               { icon: Mail, label: 'Email', value: 'info@cloudninedental.in', href: 'mailto:info@cloudninedental.in' },
-              { icon: Clock, label: 'Working Hours', value: 'Mon–Sat: 9AM–8PM\nSun: 10AM–2PM', href: null },
+              { icon: Clock, label: 'Working Hours', value: 'Mon–Sat: 10AM–8PM\nSun: 10AM–1PM', href: null },
             ].map(({ icon: Icon, label, value, href }) => (
               <div key={label} className="bg-[#F4F8EC] border border-[#D6E2C4] rounded-[20px] p-6 flex gap-4">
                 <div className="w-11 h-11 bg-navy rounded-xl flex items-center justify-center flex-shrink-0">
