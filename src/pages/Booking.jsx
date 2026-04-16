@@ -91,7 +91,7 @@ export default function Booking() {
               <div className="bg-white rounded-[20px] p-6 border border-gray-100">
                 <h3 className="font-urbanist font-bold text-navy text-[16px] mb-4">What to Expect</h3>
                 {[
-                  'Submit the appointment form',
+                  'Chat with Jess or fill the form',
                   'We call to confirm your slot',
                   'Arrive 5 min before your time',
                   'Get world-class dental care!',
