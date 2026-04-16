@@ -1,7 +1,7 @@
 import { Helmet } from 'react-helmet-async'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { MapPin, Phone, Mail, Clock, Send } from 'lucide-react'
+import { MapPin, Phone, Mail, Clock, Send, MessageCircle, FileText } from 'lucide-react'
 
 const HOURS = [
   { day: 'Monday – Friday', time: '10:00 AM – 8:00 PM' },
@@ -9,7 +9,11 @@ const HOURS = [
   { day: 'Sunday', time: '10:00 AM – 1:00 PM' },
 ]
 
+const AGENT_ID = '2154f5b6-1803-4953-9f54-1901489d0532'
+const IFRAME_SRC = `https://loquent-widget.vercel.app/iframe.html?agentId=${AGENT_ID}&mode=chat`
+
 export default function Contact() {
+  const [showForm, setShowForm] = useState(false)
   const [form, setForm] = useState({ name: '', phone: '', email: '', message: '' })
   const [submitted, setSubmitted] = useState(false)
 
@@ -112,44 +116,83 @@ export default function Contact() {
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
 
-            {/* Contact Form */}
-            <div>
-              <span className="section-label">Send a Message</span>
-              <h2 className="section-title mb-8">We'd Love to Hear From You</h2>
-
-              {submitted ? (
-                <div className="bg-[#F4F8EC] rounded-[20px] p-10 text-center border border-[#D6E2C4]">
-                  <div className="w-16 h-16 bg-navy rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Send size={24} className="text-white" />
+            {/* Chat with Jess + Contact Form toggle */}
+            <div className="flex flex-col gap-6">
+              {/* Loquent Chat Iframe */}
+              <div>
+                <span className="section-label">Send a Message</span>
+                <h2 className="section-title mb-6">Chat with Jess</h2>
+                <div className="bg-white rounded-[20px] border border-gray-100 shadow-sm overflow-hidden">
+                  <div className="flex items-center gap-3 px-5 py-3 bg-navy">
+                    <div className="w-8 h-8 rounded-full bg-brand-yellow flex items-center justify-center">
+                      <MessageCircle size={14} className="text-white" />
+                    </div>
+                    <div>
+                      <div className="font-urbanist font-bold text-white text-[14px] leading-none">Jess</div>
+                      <div className="text-green-200/70 text-[11px] mt-0.5">AI Receptionist · Available 24/7</div>
+                    </div>
                   </div>
-                  <h3 className="font-urbanist font-extrabold text-navy text-[22px] mb-2">Message Sent!</h3>
-                  <p className="text-body text-sm mb-5">Thank you for reaching out. We'll get back to you within a few hours.</p>
-                  <button onClick={() => { setSubmitted(false); setForm({ name:'', phone:'', email:'', message:'' }) }}
-                    className="text-brand-blue font-semibold text-sm hover:underline">
-                    Send another message
-                  </button>
+                  <div className="w-full h-[500px] bg-[#1A1A1C]">
+                    <iframe
+                      src={IFRAME_SRC}
+                      width="100%"
+                      height="100%"
+                      frameBorder="0"
+                      allow="microphone"
+                      title="Chat with Jess — Cloud Nine Dental"
+                      style={{ border: 'none' }}
+                    />
+                  </div>
                 </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="flex flex-col gap-5" noValidate>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                    <CField label="Full Name" required>
-                      <input type="text" name="name" required value={form.name} onChange={handleChange} placeholder="Your full name" className="cf-input" />
-                    </CField>
-                    <CField label="Phone Number" required>
-                      <input type="tel" name="phone" required value={form.phone} onChange={handleChange} placeholder="+91 90379 09046" className="cf-input" />
-                    </CField>
-                  </div>
-                  <CField label="Email Address">
-                    <input type="email" name="email" value={form.email} onChange={handleChange} placeholder="your@email.com" className="cf-input" />
-                  </CField>
-                  <CField label="Message" required>
-                    <textarea name="message" rows={5} required value={form.message} onChange={handleChange}
-                      placeholder="How can we help you?" className="cf-input resize-none" />
-                  </CField>
-                  <button type="submit" className="btn-primary justify-center">
-                    <Send size={16} /> Send Message
-                  </button>
-                </form>
+              </div>
+
+              {/* Toggle to show traditional form */}
+              <button
+                onClick={() => setShowForm(v => !v)}
+                className="flex items-center justify-center gap-2 text-brand-blue font-urbanist font-semibold text-[14px] hover:text-navy transition-colors"
+              >
+                <FileText size={15} />
+                {showForm ? 'Hide contact form' : 'Prefer to fill a form instead?'}
+              </button>
+
+              {/* Traditional contact form (hidden by default) */}
+              {showForm && (
+                <div>
+                  {submitted ? (
+                    <div className="bg-[#F4F8EC] rounded-[20px] p-10 text-center border border-[#D6E2C4]">
+                      <div className="w-16 h-16 bg-navy rounded-full flex items-center justify-center mx-auto mb-4">
+                        <Send size={24} className="text-white" />
+                      </div>
+                      <h3 className="font-urbanist font-extrabold text-navy text-[22px] mb-2">Message Sent!</h3>
+                      <p className="text-body text-sm mb-5">Thank you for reaching out. We'll get back to you within a few hours.</p>
+                      <button onClick={() => { setSubmitted(false); setForm({ name:'', phone:'', email:'', message:'' }) }}
+                        className="text-brand-blue font-semibold text-sm hover:underline">
+                        Send another message
+                      </button>
+                    </div>
+                  ) : (
+                    <form onSubmit={handleSubmit} className="flex flex-col gap-5" noValidate>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                        <CField label="Full Name" required>
+                          <input type="text" name="name" required value={form.name} onChange={handleChange} placeholder="Your full name" className="cf-input" />
+                        </CField>
+                        <CField label="Phone Number" required>
+                          <input type="tel" name="phone" required value={form.phone} onChange={handleChange} placeholder="+91 90379 09046" className="cf-input" />
+                        </CField>
+                      </div>
+                      <CField label="Email Address">
+                        <input type="email" name="email" value={form.email} onChange={handleChange} placeholder="your@email.com" className="cf-input" />
+                      </CField>
+                      <CField label="Message" required>
+                        <textarea name="message" rows={5} required value={form.message} onChange={handleChange}
+                          placeholder="How can we help you?" className="cf-input resize-none" />
+                      </CField>
+                      <button type="submit" className="btn-primary justify-center">
+                        <Send size={16} /> Send Message
+                      </button>
+                    </form>
+                  )}
+                </div>
               )}
             </div>
 
