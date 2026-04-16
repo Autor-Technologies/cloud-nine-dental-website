@@ -6,11 +6,13 @@ import {
   Sun, Heart, Leaf, Crown, Clock, Tag
 } from 'lucide-react'
 import { BLOGS } from '../data/blogs'
+import { useChat } from '../context/ChatContext'
 
 /* ═══════════════════════════════════════════════════════
    HERO SECTION
 ═══════════════════════════════════════════════════════ */
 function Hero() {
+  const { openChat } = useChat()
   return (
     <section className="relative bg-white pt-[150px] pb-20 md:pb-0 overflow-hidden min-h-[92vh] flex items-center">
       {/* BG slice */}
@@ -39,7 +41,7 @@ function Hero() {
               offering expert, compassionate care for every member of your family.
             </p>
             <div className="flex flex-wrap gap-4 mb-10">
-              <Link to="/booking" className="btn-primary">Book Appointment <ArrowRight size={16} /></Link>
+              <button onClick={openChat} className="btn-primary">Book Appointment <ArrowRight size={16} /></button>
               <Link to="/services" className="btn-outline">Our Services</Link>
             </div>
             <div className="flex flex-wrap gap-6">
@@ -431,6 +433,7 @@ function Testimonials() {
    BOOKING CTA — full-width image background
 ═══════════════════════════════════════════════════════ */
 function BookingCTA() {
+  const { openChat } = useChat()
   return (
     <section className="relative py-24 overflow-hidden">
       {/* Background image */}
@@ -453,9 +456,9 @@ function BookingCTA() {
           Book your appointment today and take the first step toward the confident, healthy smile you deserve.
         </p>
         <div className="flex flex-wrap gap-4 justify-center">
-          <Link to="/booking" className="btn-white">
+          <button onClick={openChat} className="btn-white">
             Book Appointment <ArrowRight size={15} />
-          </Link>
+          </button>
           <a href="tel:+919037909046" className="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm border-2 border-white text-white font-urbanist font-bold text-[15px] px-7 py-3 rounded-lg hover:bg-white hover:text-navy transition-colors duration-200">
             <Phone size={15} /> Call Us Now
           </a>

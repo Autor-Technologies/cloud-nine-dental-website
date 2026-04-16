@@ -1,7 +1,7 @@
 import { Helmet } from 'react-helmet-async'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { CheckCircle, Calendar, Phone, Clock, ArrowRight } from 'lucide-react'
+import { CheckCircle, Calendar, Phone, Clock, ArrowRight, MessageCircle, FileText } from 'lucide-react'
 
 const SERVICES = [
   'General Dentistry – Check-up & Cleaning',
@@ -19,7 +19,11 @@ const SERVICES = [
 
 const TIME_SLOTS = ['9:00 AM', '10:00 AM', '11:00 AM', '12:00 PM', '2:00 PM', '3:00 PM', '4:00 PM', '5:00 PM', '6:00 PM', '7:00 PM']
 
+const AGENT_ID = '2154f5b6-1803-4953-9f54-1901489d0532'
+const IFRAME_SRC = `https://loquent-widget.vercel.app/iframe.html?agentId=${AGENT_ID}&mode=chat`
+
 export default function Booking() {
+  const [showForm, setShowForm] = useState(false)
   const [form, setForm] = useState({ name: '', phone: '', email: '', service: '', date: '', time: '', notes: '' })
   const [submitted, setSubmitted] = useState(false)
 
@@ -48,7 +52,7 @@ export default function Booking() {
           <span className="section-label text-brand-yellow">Schedule a Visit</span>
           <h1 className="font-urbanist font-extrabold text-white text-[clamp(32px,4vw,52px)] mt-2 mb-4">Book Your Appointment</h1>
           <p className="text-green-200/70 text-[16px] max-w-xl mx-auto leading-relaxed">
-            Fill in the form below and our team will confirm your appointment within a few hours.
+            Chat with Jess, our AI receptionist, to book instantly — or fill in the form below.
           </p>
           <nav className="text-[13px] text-green-200/50 mt-6" aria-label="Breadcrumb">
             <Link to="/" className="hover:text-white transition-colors">Home</Link>
@@ -102,78 +106,123 @@ export default function Booking() {
               </div>
             </div>
 
-            {/* Booking form */}
-            <div className="lg:col-span-2 bg-white rounded-[24px] border border-gray-100 shadow-sm p-8 md:p-10">
-              {submitted ? (
-                <div className="flex flex-col items-center justify-center h-full text-center gap-4 py-10">
-                  <div className="w-20 h-20 bg-navy rounded-full flex items-center justify-center">
-                    <CheckCircle size={36} className="text-brand-yellow" />
+            {/* Main content — Chat iframe + form toggle */}
+            <div className="lg:col-span-2 flex flex-col gap-6">
+
+              {/* Loquent Chat Iframe */}
+              <div className="bg-white rounded-[24px] border border-gray-100 shadow-sm overflow-hidden">
+                <div className="flex items-center gap-3 px-6 py-4 bg-navy">
+                  <div className="w-9 h-9 rounded-full bg-brand-yellow flex items-center justify-center">
+                    <MessageCircle size={16} className="text-white" />
                   </div>
-                  <h3 className="font-urbanist font-extrabold text-navy text-[26px]">Appointment Requested!</h3>
-                  <p className="text-body text-[15px] leading-relaxed max-w-sm">
-                    Thank you, <strong>{form.name}</strong>! Our team will call you at <strong>{form.phone}</strong> within a few hours to confirm your appointment.
-                  </p>
-                  <button
-                    onClick={() => { setSubmitted(false); setForm({ name:'', phone:'', email:'', service:'', date:'', time:'', notes:'' }) }}
-                    className="btn-outline mt-2"
-                  >
-                    Book Another Appointment
-                  </button>
+                  <div>
+                    <div className="font-urbanist font-bold text-white text-[15px] leading-none">Chat with Jess</div>
+                    <div className="text-green-200/70 text-[11px] mt-0.5">AI Receptionist · Available 24/7</div>
+                  </div>
                 </div>
-              ) : (
-                <>
-                  <h2 className="font-urbanist font-extrabold text-navy text-[24px] mb-2">Request an Appointment</h2>
-                  <p className="text-body text-sm mb-8">Fill in the details below and we'll confirm your slot.</p>
+                <div className="w-full h-[600px] bg-[#1A1A1C]">
+                  <iframe
+                    src={IFRAME_SRC}
+                    width="100%"
+                    height="100%"
+                    frameBorder="0"
+                    allow="microphone"
+                    title="Book appointment with Jess — Cloud Nine Dental"
+                    style={{ border: 'none' }}
+                  />
+                </div>
+                <div className="px-6 py-3 bg-[#F4F8EC] border-t border-[#D6E2C4] text-center">
+                  <p className="text-body text-[13px]">
+                    Or call us directly at{' '}
+                    <a href="tel:+919037909046" className="text-brand-blue font-semibold hover:underline">+91 90379 09046</a>
+                  </p>
+                </div>
+              </div>
 
-                  <form onSubmit={handleSubmit} className="flex flex-col gap-5" noValidate>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                      <BField label="Full Name" required>
-                        <input type="text" name="name" required value={form.name} onChange={handleChange} placeholder="e.g. Priya Nair" className="bk-input" />
-                      </BField>
-                      <BField label="Phone Number" required>
-                        <input type="tel" name="phone" required value={form.phone} onChange={handleChange} placeholder="+91 90379 09046" className="bk-input" />
-                      </BField>
+              {/* Toggle to show traditional form */}
+              <button
+                onClick={() => setShowForm(v => !v)}
+                className="flex items-center justify-center gap-2 text-brand-blue font-urbanist font-semibold text-[14px] hover:text-navy transition-colors"
+              >
+                <FileText size={15} />
+                {showForm ? 'Hide appointment form' : 'Prefer to fill a form instead?'}
+              </button>
+
+              {/* Traditional booking form (hidden by default) */}
+              {showForm && (
+                <div className="bg-white rounded-[24px] border border-gray-100 shadow-sm p-8 md:p-10">
+                  {submitted ? (
+                    <div className="flex flex-col items-center justify-center h-full text-center gap-4 py-10">
+                      <div className="w-20 h-20 bg-navy rounded-full flex items-center justify-center">
+                        <CheckCircle size={36} className="text-brand-yellow" />
+                      </div>
+                      <h3 className="font-urbanist font-extrabold text-navy text-[26px]">Appointment Requested!</h3>
+                      <p className="text-body text-[15px] leading-relaxed max-w-sm">
+                        Thank you, <strong>{form.name}</strong>! Our team will call you at <strong>{form.phone}</strong> within a few hours to confirm your appointment.
+                      </p>
+                      <button
+                        onClick={() => { setSubmitted(false); setForm({ name:'', phone:'', email:'', service:'', date:'', time:'', notes:'' }) }}
+                        className="btn-outline mt-2"
+                      >
+                        Book Another Appointment
+                      </button>
                     </div>
+                  ) : (
+                    <>
+                      <h2 className="font-urbanist font-extrabold text-navy text-[24px] mb-2">Request an Appointment</h2>
+                      <p className="text-body text-sm mb-8">Fill in the details below and we'll confirm your slot.</p>
 
-                    <BField label="Email Address">
-                      <input type="email" name="email" value={form.email} onChange={handleChange} placeholder="your@email.com" className="bk-input" />
-                    </BField>
+                      <form onSubmit={handleSubmit} className="flex flex-col gap-5" noValidate>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                          <BField label="Full Name" required>
+                            <input type="text" name="name" required value={form.name} onChange={handleChange} placeholder="e.g. Priya Nair" className="bk-input" />
+                          </BField>
+                          <BField label="Phone Number" required>
+                            <input type="tel" name="phone" required value={form.phone} onChange={handleChange} placeholder="+91 90379 09046" className="bk-input" />
+                          </BField>
+                        </div>
 
-                    <BField label="Service Required" required>
-                      <select name="service" required value={form.service} onChange={handleChange} className="bk-input">
-                        <option value="">Select a service…</option>
-                        {SERVICES.map(s => <option key={s}>{s}</option>)}
-                      </select>
-                    </BField>
+                        <BField label="Email Address">
+                          <input type="email" name="email" value={form.email} onChange={handleChange} placeholder="your@email.com" className="bk-input" />
+                        </BField>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                      <BField label="Preferred Date" required>
-                        <input type="date" name="date" required value={form.date} onChange={handleChange}
-                          min={new Date().toISOString().split('T')[0]} className="bk-input" />
-                      </BField>
-                      <BField label="Preferred Time" required>
-                        <select name="time" required value={form.time} onChange={handleChange} className="bk-input">
-                          <option value="">Choose a time…</option>
-                          {TIME_SLOTS.map(t => <option key={t}>{t}</option>)}
-                        </select>
-                      </BField>
-                    </div>
+                        <BField label="Service Required" required>
+                          <select name="service" required value={form.service} onChange={handleChange} className="bk-input">
+                            <option value="">Select a service…</option>
+                            {SERVICES.map(s => <option key={s}>{s}</option>)}
+                          </select>
+                        </BField>
 
-                    <BField label="Additional Notes">
-                      <textarea name="notes" rows={3} value={form.notes} onChange={handleChange}
-                        placeholder="Any concerns, allergies or special requirements…" className="bk-input resize-none" />
-                    </BField>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                          <BField label="Preferred Date" required>
+                            <input type="date" name="date" required value={form.date} onChange={handleChange}
+                              min={new Date().toISOString().split('T')[0]} className="bk-input" />
+                          </BField>
+                          <BField label="Preferred Time" required>
+                            <select name="time" required value={form.time} onChange={handleChange} className="bk-input">
+                              <option value="">Choose a time…</option>
+                              {TIME_SLOTS.map(t => <option key={t}>{t}</option>)}
+                            </select>
+                          </BField>
+                        </div>
 
-                    <button type="submit" className="btn-primary justify-center mt-2 py-3.5 text-[15px]">
-                      Confirm Appointment Request <ArrowRight size={16} />
-                    </button>
+                        <BField label="Additional Notes">
+                          <textarea name="notes" rows={3} value={form.notes} onChange={handleChange}
+                            placeholder="Any concerns, allergies or special requirements…" className="bk-input resize-none" />
+                        </BField>
 
-                    <p className="text-center text-body text-xs">
-                      Or call us directly at{' '}
-                      <a href="tel:+919037909046" className="text-brand-blue font-semibold hover:underline">+91 90379 09046</a>
-                    </p>
-                  </form>
-                </>
+                        <button type="submit" className="btn-primary justify-center mt-2 py-3.5 text-[15px]">
+                          Confirm Appointment Request <ArrowRight size={16} />
+                        </button>
+
+                        <p className="text-center text-body text-xs">
+                          Or call us directly at{' '}
+                          <a href="tel:+919037909046" className="text-brand-blue font-semibold hover:underline">+91 90379 09046</a>
+                        </p>
+                      </form>
+                    </>
+                  )}
+                </div>
               )}
             </div>
 

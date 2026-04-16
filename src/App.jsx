@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider, Outlet, useLocation, ScrollRestora
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import AIReceptionistPopup from './components/AIReceptionistPopup'
+import LoquentChatModal from './components/LoquentChatModal'
 import Home from './pages/Home'
 import About from './pages/About'
 import Services from './pages/Services'
@@ -23,6 +24,7 @@ function RootLayout() {
       </main>
       <Footer />
       <AIReceptionistPopup />
+      <LoquentChatModal />
     </>
   )
 }

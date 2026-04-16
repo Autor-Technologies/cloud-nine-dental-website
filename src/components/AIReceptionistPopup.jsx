@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { X, Phone, CalendarCheck, MessageCircle, Sparkles, Star } from 'lucide-react'
+import { useChat } from '../context/ChatContext'
 
 const SESSION_KEY = 'cn_ai_popup_seen'
 
@@ -8,6 +9,7 @@ const CLINIC_IMG = '/images/reception.jpg'
 const CLINIC_FALLBACK = 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=900&h=300&fit=crop&auto=format&q=80'
 
 export default function AIReceptionistPopup() {
+  const { openChat } = useChat()
   const [visible, setVisible] = useState(false)
   const [closing, setClosing] = useState(false)
 
@@ -132,9 +134,15 @@ export default function AIReceptionistPopup() {
               <button onClick={dismiss} className="btn-outline text-[13px] py-2.5 px-5">
                 Maybe later
               </button>
-              <a href="/booking" onClick={dismiss} className="btn-primary text-[13px] py-2.5 px-5 whitespace-nowrap">
-                Book Now
-              </a>
+              <button
+                onClick={() => {
+                  dismiss()
+                  setTimeout(() => openChat(), 350)
+                }}
+                className="btn-primary text-[13px] py-2.5 px-5 whitespace-nowrap"
+              >
+                Chat with Jess
+              </button>
             </div>
           </div>
 
