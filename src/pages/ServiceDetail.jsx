@@ -1,6 +1,7 @@
 import { Helmet } from 'react-helmet-async'
 import { useParams, Link } from 'react-router-dom'
 import { ArrowRight, CheckCircle, Clock, Star, Phone, Shield } from 'lucide-react'
+import { useChat } from '../context/ChatContext'
 
 /* ── Per-service images ── */
 // Real clinic photos used selectively — hero for General Dentistry & Root Canal only
@@ -146,6 +147,7 @@ const SERVICE_DATA = {
 }
 
 export default function ServiceDetail() {
+  const { openChat } = useChat()
   const { slug } = useParams()
   const service = SERVICE_DATA[slug]
   const imgs = IMG[slug]
@@ -286,9 +288,9 @@ export default function ServiceDetail() {
                   <p className="text-green-200/70 text-sm leading-relaxed mb-5">
                     Ready to get started? Book online and our team will confirm within a few hours.
                   </p>
-                  <Link to="/booking" className="btn-white w-full justify-center mb-3">
+                  <button onClick={openChat} className="btn-white w-full justify-center mb-3">
                     Book Appointment <ArrowRight size={14} />
-                  </Link>
+                  </button>
                   <a href="tel:+919037909046"
                     className="flex items-center justify-center gap-2 text-green-200/70 hover:text-white text-sm transition-colors py-2">
                     <Phone size={14} /> Or call: +91 90379 09046
@@ -337,7 +339,7 @@ export default function ServiceDetail() {
             Our specialists are available 7 days a week. Same-day emergency appointments available.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <Link to="/booking" className="btn-white">Book Now <ArrowRight size={14} /></Link>
+            <button onClick={openChat} className="btn-white">Book Now <ArrowRight size={14} /></button>
             <a href="tel:+919037909046" className="btn-outline border-white text-white hover:bg-white hover:text-navy">
               <Phone size={14} /> Call Us
             </a>
