@@ -1,7 +1,6 @@
 import { Helmet } from 'react-helmet-async'
-import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { MapPin, Phone, Mail, Clock, Send, MessageCircle, FileText } from 'lucide-react'
+import { MapPin, Phone, Mail, Clock, MessageCircle } from 'lucide-react'
 
 const HOURS = [
   { day: 'Monday – Friday', time: '10:00 AM – 8:00 PM' },
@@ -13,19 +12,6 @@ const AGENT_ID = '2154f5b6-1803-4953-9f54-1901489d0532'
 const IFRAME_SRC = `https://loquent-widget.vercel.app/iframe.html?agentId=${AGENT_ID}&mode=chat`
 
 export default function Contact() {
-  const [showForm, setShowForm] = useState(false)
-  const [form, setForm] = useState({ name: '', phone: '', email: '', message: '' })
-  const [submitted, setSubmitted] = useState(false)
-
-  function handleChange(e) {
-    setForm(f => ({ ...f, [e.target.name]: e.target.value }))
-  }
-
-  function handleSubmit(e) {
-    e.preventDefault()
-    setSubmitted(true)
-  }
-
   return (
     <>
       <Helmet>
@@ -146,54 +132,6 @@ export default function Contact() {
                 </div>
               </div>
 
-              {/* Toggle to show traditional form */}
-              <button
-                onClick={() => setShowForm(v => !v)}
-                className="flex items-center justify-center gap-2 text-brand-blue font-urbanist font-semibold text-[14px] hover:text-navy transition-colors"
-              >
-                <FileText size={15} />
-                {showForm ? 'Hide contact form' : 'Prefer to fill a form instead?'}
-              </button>
-
-              {/* Traditional contact form (hidden by default) */}
-              {showForm && (
-                <div>
-                  {submitted ? (
-                    <div className="bg-[#F4F8EC] rounded-[20px] p-10 text-center border border-[#D6E2C4]">
-                      <div className="w-16 h-16 bg-navy rounded-full flex items-center justify-center mx-auto mb-4">
-                        <Send size={24} className="text-white" />
-                      </div>
-                      <h3 className="font-urbanist font-extrabold text-navy text-[22px] mb-2">Message Sent!</h3>
-                      <p className="text-body text-sm mb-5">Thank you for reaching out. We'll get back to you within a few hours.</p>
-                      <button onClick={() => { setSubmitted(false); setForm({ name:'', phone:'', email:'', message:'' }) }}
-                        className="text-brand-blue font-semibold text-sm hover:underline">
-                        Send another message
-                      </button>
-                    </div>
-                  ) : (
-                    <form onSubmit={handleSubmit} className="flex flex-col gap-5" noValidate>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                        <CField label="Full Name" required>
-                          <input type="text" name="name" required value={form.name} onChange={handleChange} placeholder="Your full name" className="cf-input" />
-                        </CField>
-                        <CField label="Phone Number" required>
-                          <input type="tel" name="phone" required value={form.phone} onChange={handleChange} placeholder="+91 90379 09046" className="cf-input" />
-                        </CField>
-                      </div>
-                      <CField label="Email Address">
-                        <input type="email" name="email" value={form.email} onChange={handleChange} placeholder="your@email.com" className="cf-input" />
-                      </CField>
-                      <CField label="Message" required>
-                        <textarea name="message" rows={5} required value={form.message} onChange={handleChange}
-                          placeholder="How can we help you?" className="cf-input resize-none" />
-                      </CField>
-                      <button type="submit" className="btn-primary justify-center">
-                        <Send size={16} /> Send Message
-                      </button>
-                    </form>
-                  )}
-                </div>
-              )}
             </div>
 
             {/* Map + Hours */}
@@ -232,27 +170,6 @@ export default function Contact() {
         </div>
       </section>
 
-      <style>{`
-        .cf-input {
-          width: 100%; padding: 12px 14px; border-radius: 10px;
-          border: 1.5px solid #D6E2C4; font-size: 14px; font-family: inherit;
-          color: #2D4A12; background: #F4F8EC; outline: none;
-          transition: border-color 0.2s, background 0.2s;
-        }
-        .cf-input:focus { border-color: #4F7A21; background: #fff; }
-        .cf-input::placeholder { color: #8FA47A; }
-      `}</style>
     </>
-  )
-}
-
-function CField({ label, required, children }) {
-  return (
-    <div className="flex flex-col gap-1.5">
-      <label className="font-urbanist font-semibold text-navy text-[12px] uppercase tracking-wider">
-        {label}{required && <span className="text-brand-blue ml-0.5">*</span>}
-      </label>
-      {children}
-    </div>
   )
 }
