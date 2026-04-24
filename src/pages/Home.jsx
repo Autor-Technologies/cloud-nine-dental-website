@@ -156,7 +156,7 @@ const HOME_SERVICES = [
     desc: 'Braces and clear aligners to align teeth and correct bite issues at any age.',
   },
   {
-    icon: Activity, title: 'Root Canal', to: '/services/root-canal', color: 'bg-rose-50 text-rose-700',
+    icon: Activity, title: 'Root Canal Treatment', to: '/services/root-canal', color: 'bg-rose-50 text-rose-700',
     img: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=480&h=260&fit=crop&auto=format&q=75',
     desc: 'Pain-free endodontic therapy to save infected teeth and restore full function.',
   },
